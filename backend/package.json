@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.10.2"
+    "fastify": "4.10.2",
+    "fastify-cors": "6.1.0"
   }
 }
