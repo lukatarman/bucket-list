@@ -6,13 +6,6 @@ export class Database {
   };
 
   getBucketList() {
-    fs.writeFile(
-      "./src/data/database-response.json",
-      JSON.stringify(this.newData),
-      (err) => {
-        if (err) throw err;
-        console.log("data added");
-      }
-    );
+    return fs.readFileSync("./src/data/database-response.json", "utf-8");
   }
 }
