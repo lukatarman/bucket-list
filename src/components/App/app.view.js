@@ -1,7 +1,7 @@
 import { getData } from "../../adapters/http-client-adapter.js";
 import { useState } from "react";
-import BucketList from "../../Pages/BucketList/bucket.list.view.js";
-import MyStorage from "../../Pages/MyStorage/my.storage.view.js";
+import BucketList from "../../pages/BucketList/bucket.list.view.js";
+import MyStorage from "../../pages/MyStorage/my.storage.view.js";
 import "../../assets/global.css";
 
 const App = () => {
