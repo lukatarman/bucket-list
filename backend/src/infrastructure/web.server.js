@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 
 export class WebServer {
   #server;
@@ -8,7 +9,7 @@ export class WebServer {
       logger: true,
     });
 
-    this.#server.register(gameQueriesRouter.routes);
+    this.#server.register(cors, gameQueriesRouter.routes);
   }
 
   async start() {
