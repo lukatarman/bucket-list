@@ -1,5 +1,7 @@
 import { getData } from "../../adapters/http-client-adapter.js";
 import { useState } from "react";
+import BucketList from "../BucketList/bucket.list.view.js";
+import MyStorage from "../MyStorage/my.storage.view.js";
 import "../../assets/global.css";
 
 const App = () => {
@@ -15,8 +17,8 @@ const App = () => {
   return (
     <div>
       <nav>Secure could storage</nav>
-      <div>Bucket list</div>
-      <div>Actual bucket list</div>
+      <BucketList />
+      <MyStorage />
     </div>
   );
 };
