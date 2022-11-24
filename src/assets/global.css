@@ -1,3 +1,4 @@
-* {
-  border: 1px green solid;
+div {
+  border: 2px green solid;
+  margin: 5px;
 }
