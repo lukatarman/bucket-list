@@ -1,17 +1,26 @@
 const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
-  const onButtonClick = () => {
+  const testFunc = async (e) => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
   };
+
   return (
     <div>
       <h5>Create new bucket</h5>
-      <div>
-        <div>Bucket inputs</div>
-        <button type="button" onClick={onButtonClick}>
-          Create Bucket
-        </button>
-      </div>
+      <form onSubmit={testFunc}>
+        <div>
+          <div>
+            <label>Bucket Name*</label>
+            <input type="text"></input>
+          </div>
+          <div>
+            <label>Bucket Location*</label>
+            <input type="text"></input>
+          </div>
+        </div>
+
+        <button type="submit">Create Bucket</button>
+      </form>
     </div>
   );
 };
