@@ -5,15 +5,6 @@ import MyStorage from "../../Pages/MyStorage/my.storage.view.js";
 import "../../assets/global.css";
 
 const App = () => {
-  const [myTest, setMyTest] = useState("");
-  useState(() => {
-    const fetchData = async () => {
-      const response = await getData();
-      console.log(response);
-    };
-
-    fetchData();
-  });
   return (
     <div>
       <nav>Secure could storage</nav>
