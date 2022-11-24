@@ -1,11 +1,35 @@
+import { useEffect, useState } from "react";
+import { getData } from "../../adapters/http-client-adapter.js";
+
 const BucketTable = ({
   setDisplayCreateBucket,
   setDisplayCreateButton,
   displayCreateButton,
 }) => {
+  const [tableResults, setTableResults] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getData();
+      console.log(response);
+      setTableResults(response.data);
+    };
+
+    fetchData();
+  }, []);
+
+  const tableRender = tableResults.map((result) => {
+    return (
+      <div>
+        {result.test}:{result.location}
+      </div>
+    );
+  });
+
   const onButtonClick = () => {
     setDisplayCreateButton(false);
     setDisplayCreateBucket(true);
+    console.log(tableResults);
   };
 
   const showButton = () => {
@@ -19,10 +43,10 @@ const BucketTable = ({
   return (
     <div>
       <div>
-        <div>all buckets</div>
+        <div>all buckets ({tableResults.length})</div>
         <div>{displayCreateButton ? showButton() : null}</div>
       </div>
-      <div>table</div>
+      <div>{tableRender}</div>
     </div>
   );
 };
