@@ -1,5 +1,6 @@
 import { getData } from "../../adapters/http-client-adapter.js";
 import { useState } from "react";
+import "../../assets/global.css";
 
 const App = () => {
   const [myTest, setMyTest] = useState("");
@@ -11,7 +12,13 @@ const App = () => {
 
     fetchData();
   });
-  return <div>Test</div>;
+  return (
+    <div>
+      <nav>Secure could storage</nav>
+      <div>Bucket list</div>
+      <div>Actual bucket list</div>
+    </div>
+  );
 };
 
 export default App;
