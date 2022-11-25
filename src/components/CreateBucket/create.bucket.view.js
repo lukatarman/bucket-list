@@ -1,7 +1,11 @@
 import { postData } from "../../adapters/http-client-adapter.js";
+import { useState } from "react";
 
 const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
-  const testFunc = async (e) => {
+  const [nameInputValue, setNameInputValue] = useState("");
+  const [locationvalue, setLocationValue] = useState("");
+
+  const handleSubmit = async (e) => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
 
@@ -14,18 +18,36 @@ const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
     postData(formDataObject);
   };
 
+  const onNameChange = (e) => {
+    setNameInputValue(e.target.value);
+  };
+
+  const onLocationChange = (e) => {
+    setLocationValue(e.target.value);
+  };
+
   return (
     <div>
       <h5>Create new bucket</h5>
-      <form onSubmit={testFunc}>
+      <form onSubmit={handleSubmit}>
         <div>
           <div>
             <label>Bucket Name*</label>
-            <input type="text" name="name"></input>
+            <input
+              type="text"
+              name="name"
+              value={nameInputValue}
+              onChange={onNameChange}
+            />
           </div>
           <div>
             <label>Bucket Location*</label>
-            <input type="text" name="location"></input>
+            <input
+              type="text"
+              name="location"
+              value={locationvalue}
+              onChange={onLocationChange}
+            />
           </div>
         </div>
 
