@@ -5,6 +5,7 @@ import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
 const BucketList = () => {
   const [displayCreateBucket, setDisplayCreateBucket] = useState(false);
   const [displayCreateButton, setDisplayCreateButton] = useState(true);
+  const [tableResults, setTableResults] = useState([]);
 
   return (
     <div>
@@ -12,12 +13,15 @@ const BucketList = () => {
         <CreateBucket
           setDisplayCreateBucket={setDisplayCreateBucket}
           setDisplayCreateButton={setDisplayCreateButton}
+          setTableResults={setTableResults}
         />
       ) : null}
       <BucketTable
         setDisplayCreateBucket={setDisplayCreateBucket}
         setDisplayCreateButton={setDisplayCreateButton}
         displayCreateButton={displayCreateButton}
+        tableResults={tableResults}
+        setTableResults={setTableResults}
       />
     </div>
   );
