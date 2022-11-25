@@ -5,17 +5,11 @@ const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
   const [nameInputValue, setNameInputValue] = useState("");
   const [locationvalue, setLocationValue] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
 
-    const formDataObject = {};
-    const formData = new FormData(e.target);
-
-    for (const [key, value] of formData) {
-      formDataObject[key] = value;
-    }
-    postData(formDataObject);
+    postData({ name: nameInputValue, location: locationvalue });
   };
 
   const onNameChange = (e) => {
