@@ -22,4 +22,8 @@ export class Database {
       }
     );
   }
+
+  addFiles(file) {
+    console.log(file);
+  }
 }
