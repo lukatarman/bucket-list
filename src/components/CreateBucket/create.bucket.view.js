@@ -1,7 +1,12 @@
+import { getData } from "../../adapters/http.client.adapter.js";
 import { postData } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
 
-const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
+const CreateBucket = ({
+  setDisplayCreateBucket,
+  setDisplayCreateButton,
+  setTableResults,
+}) => {
   const [nameInputValue, setNameInputValue] = useState("");
   const [locationvalue, setLocationValue] = useState("");
 
@@ -9,7 +14,10 @@ const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
 
-    postData({ name: nameInputValue, location: locationvalue });
+    await postData({ name: nameInputValue, location: locationvalue });
+
+    const response = await getData();
+    setTableResults(response.data);
   };
 
   const onNameChange = (e) => {
