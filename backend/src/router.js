@@ -9,5 +9,9 @@ export class QueriesRouter {
     server.get("/bucketList", async (request, reply) => {
       return await this.#controller.getBucketList();
     });
+
+    server.post("/buckets/add", async (request, reply) => {
+      this.#controller.addBucketListEntry(request.body);
+    });
   };
 }
