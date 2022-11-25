@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
+import multer from "fastify-multer";
 
 export class WebServer {
   #server;
@@ -9,6 +10,7 @@ export class WebServer {
       logger: true,
     });
 
+    this.#server.register(multer.contentParser);
     this.#server.register(cors, gameQueriesRouter.routes);
   }
 
