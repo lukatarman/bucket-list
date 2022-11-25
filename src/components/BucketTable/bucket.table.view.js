@@ -11,25 +11,15 @@ const BucketTable = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await getData();
-      console.log(response);
       setTableResults(response.data);
     };
 
     fetchData();
   }, []);
 
-  const tableRender = tableResults.map((result) => {
-    return (
-      <div>
-        {result.test}:{result.location}
-      </div>
-    );
-  });
-
   const onButtonClick = () => {
     setDisplayCreateButton(false);
     setDisplayCreateBucket(true);
-    console.log(tableResults);
   };
 
   const showButton = () => {
@@ -39,6 +29,14 @@ const BucketTable = ({
       </button>
     );
   };
+
+  const tableRender = tableResults.map((result) => {
+    return (
+      <div>
+        {result.name}:{result.location}
+      </div>
+    );
+  });
 
   return (
     <div>
