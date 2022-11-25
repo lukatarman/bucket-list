@@ -30,9 +30,9 @@ const BucketTable = ({
     );
   };
 
-  const tableRender = tableResults.map((result) => {
+  const tableRender = tableResults.map((result, index) => {
     return (
-      <div>
+      <div key={index}>
         {result.name}:{result.location}
       </div>
     );
