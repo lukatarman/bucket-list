@@ -8,12 +8,5 @@
       { "name": "FileName03", "lastModified": "12.11.2016", "size": "2MB" }
     ]
   },
-  { "name": "BestStorage", "location": "Kranj", "files": [] },
-  { "name": "test name", "location": "test location" },
-  { "name": "test name", "location": "test location" },
-  { "name": "test name", "location": "test location" },
-  { "name": "s45ty6", "location": "s56y" },
-  { "name": "Blbl test", "location": "Postojna" },
-  { "name": "mytest", "location": "yourtest" },
-  { "name": "hello", "location": "goodbye" }
+  { "name": "BestStorage", "location": "Kranj", "files": [] }
 ]
