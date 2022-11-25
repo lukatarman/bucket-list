@@ -14,7 +14,7 @@ export class QueriesRouter {
       return await this.#controller.getBucketList();
     });
 
-    server.post("/buckets/add", async (request, reply) => {
+    server.post("/buckets/add/listEntry", async (request, reply) => {
       this.#controller.addBucketListEntry(request.body);
     });
   };
