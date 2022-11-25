@@ -17,5 +17,13 @@ export class QueriesRouter {
     server.post("/buckets/add/listEntry", async (request, reply) => {
       this.#controller.addBucketListEntry(request.body);
     });
+
+    server.post(
+      "/buckets/add/files",
+      { preHandler: upload.single("file") },
+      async (request, reply) => {
+        this.#controller.addFiles(request.file);
+      }
+    );
   };
 }
