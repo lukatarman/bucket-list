@@ -1,7 +1,17 @@
+import { postData } from "../../adapters/http-client-adapter.js";
+
 const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
   const testFunc = async (e) => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
+
+    const formDataObject = {};
+    const formData = new FormData(e.target);
+
+    for (const [key, value] of formData) {
+      formDataObject[key] = value;
+    }
+    postData(formDataObject);
   };
 
   return (
@@ -11,11 +21,11 @@ const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
         <div>
           <div>
             <label>Bucket Name*</label>
-            <input type="text"></input>
+            <input type="text" name="name"></input>
           </div>
           <div>
             <label>Bucket Location*</label>
-            <input type="text"></input>
+            <input type="text" name="location"></input>
           </div>
         </div>
 
