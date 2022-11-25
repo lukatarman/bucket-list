@@ -5,9 +5,9 @@ const BucketTable = ({
   setDisplayCreateBucket,
   setDisplayCreateButton,
   displayCreateButton,
+  tableResults,
+  setTableResults,
 }) => {
-  const [tableResults, setTableResults] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await getData();
@@ -15,7 +15,7 @@ const BucketTable = ({
     };
 
     fetchData();
-  }, [tableResults, setTableResults]);
+  }, []);
 
   const onButtonClick = () => {
     setDisplayCreateButton(false);
