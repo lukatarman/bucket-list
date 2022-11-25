@@ -1,4 +1,4 @@
-import { postData } from "../../adapters/http-client-adapter.js";
+import { postData } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
 
 const CreateBucket = ({ setDisplayCreateBucket, setDisplayCreateButton }) => {
