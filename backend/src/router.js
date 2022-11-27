@@ -21,7 +21,7 @@ export class QueriesRouter {
     });
 
     server.post(
-      "/buckets/add/files",
+      "/buckets/add/file",
       { preHandler: upload.single("file") },
       async (request, reply) => {
         console.log(request.body);
