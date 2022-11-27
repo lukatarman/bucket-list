@@ -2,7 +2,7 @@ import { useState } from "react";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
 
-const MyStorage = ({ selectedBucket }) => {
+const MyStorage = ({ selectedBucket, setVisiblePage }) => {
   const [visibleTab, setVisibleTab] = useState("file-list");
   const [filesTable, setFilesTable] = useState([]);
 

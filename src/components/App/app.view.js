@@ -16,7 +16,9 @@ const App = () => {
         />
       );
     if (visiblePage === "my-storage")
-      return <MyStorage selectedBucket={selectedBucket} />;
+      return (
+        <MyStorage selectedBucket={selectedBucket} setVisiblePage={setVisiblePage} />
+      );
   };
 
   return (
