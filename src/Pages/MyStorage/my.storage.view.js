@@ -22,7 +22,6 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
   };
 
   const handleDeleteClick = () => {
-    console.log(`Deleting bucket: ${selectedBucket.name}`);
     deleteBucket(selectedBucket.index);
     setVisiblePage("bucket-list");
   };
