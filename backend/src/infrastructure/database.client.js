@@ -40,6 +40,26 @@ export class Database {
     );
   }
 
+  async deleteBucket({ bucketIndex }) {
+    const bucketContent = JSON.parse(
+      fs.readFileSync("./src/assets/database-response.json", "utf-8")
+    );
+
+    bucketContent.splice(bucketIndex, 1);
+
+    fs.writeFileSync(
+      "./src/assets/database-response.json",
+      JSON.stringify(bucketContent),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log("file has been updated");
+      }
+    );
+  }
+
   async addFile([fileDetails, bucketIndex]) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
