@@ -37,7 +37,12 @@ const BucketTable = ({
       <div
         key={index}
         onClick={() => {
-          setSelectedBucket({ name: result.name, index });
+          setSelectedBucket({
+            name: result.name,
+            location: result.location,
+            size: result.size,
+            index,
+          });
           setVisiblePage("my-storage");
         }}
       >
