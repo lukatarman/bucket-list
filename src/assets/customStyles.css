@@ -1,0 +1,40 @@
+.navbar-custom {
+  background-color: #666666;
+  color: #fdfcfb;
+}
+
+.custom-brand:hover {
+  cursor: pointer;
+}
+
+.app-background {
+  background-color: #eff2f4;
+  height: 100vh;
+}
+
+.btn-custom {
+  background-color: white;
+  outline: 2px solid black;
+  border-radius: 1px;
+}
+
+.btn-custom:hover {
+  background-color: black;
+  color: white;
+}
+
+.table-row-bordered {
+  border: solid 2px black;
+  background-color: #cccccc;
+}
+
+.table-head-content {
+  padding: 0px 5px !important;
+}
+
+.btn-custom-dropdown {
+  background-color: white;
+  outline: 2px solid black;
+  border-radius: 1px;
+  width: 100%;
+}
