@@ -7,6 +7,8 @@ const BucketTable = ({
   displayCreateButton,
   tableResults,
   setTableResults,
+  setSelectedBucket,
+  setVisiblePage,
 }) => {
   useEffect(() => {
     const fetchData = async () => {
