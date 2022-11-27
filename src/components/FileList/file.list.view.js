@@ -1,3 +1,4 @@
+import { Row, Col, Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { uploadFile } from "../../adapters/http.client.adapter.js";
 import { getFileList } from "../../adapters/http.client.adapter.js";
@@ -31,7 +32,11 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
       console.log("please select a file");
       return;
     }
-    deleteFile({ selectedBucket, selectedFile });
+    await deleteFile({ selectedBucket, selectedFile });
+
+    const response = await getFileList(selectedBucket);
+
+    setFilesTable(response.data);
   };
 
   const handleFileClick = (selectedFileObject) => {
@@ -39,22 +44,60 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   };
 
   const tableRender = filesTable.map((file, index) => (
-    <div key={index} onClick={() => handleFileClick({ name: file.name, index })}>
-      {file.name} {file.lastModified} {file.size}
-    </div>
+    <tbody>
+      <tr
+        key={index}
+        className="table-row-content"
+        onClick={() => {
+          handleFileClick({
+            name: file.name,
+            index,
+          });
+        }}
+      >
+        <td>{file.name}</td>
+        <td>{file.lastModified}</td>
+        <td>{file.size}</td>
+      </tr>
+    </tbody>
   ));
 
   return (
-    <div>
-      <div>
-        <div>All Files ({filesTable.length})</div>
-        <div>
-          <input type="button" value="Delete object" onClick={handleButtonClick}></input>
-          <label htmlFor="upload-btn">Upload</label>
+    <div className="p-3 bg-white">
+      <Row className="mb-3">
+        <Col className="d-flex align-items-center">
+          <div>All Files ({filesTable.length})</div>
+        </Col>
+        <Col className="d-flex justify-content-end">
+          <Button
+            className="py-0 mx-2"
+            variant="custom"
+            type="button"
+            onClick={handleButtonClick}
+          >
+            Delete object
+          </Button>
+          <label htmlFor="upload-btn" className="btn-custom px-2 mx-2">
+            Upload Object
+          </label>
           <input id="upload-btn" type="file" onChange={handleInputChange} hidden />
-        </div>
-      </div>
-      <div>{tableRender}</div>
+        </Col>
+      </Row>
+
+      <Table borderless hover>
+        <thead>
+          <tr className="table-row-bordered">
+            <th width="50%" className="table-head-content">
+              Name
+            </th>
+            <th width="20%" className="table-head-content">
+              Last Modified
+            </th>
+            <th className="table-head-content">Size</th>
+          </tr>
+        </thead>
+        {tableRender}
+      </Table>
     </div>
   );
 };
