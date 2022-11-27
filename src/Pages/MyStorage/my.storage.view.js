@@ -19,7 +19,7 @@ const MyStorage = ({ selectedBucket }) => {
   };
   return (
     <div>
-      <h1>{selectedBucket}</h1>
+      <h1>{selectedBucket.name}</h1>
       <div>
         <button
           onClick={() => {

@@ -15,7 +15,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   const handleInputChange = async (e) => {
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
-    formData.append("name", selectedBucket);
+    formData.append("index", selectedBucket.index);
     await uploadFile(formData);
 
     const response = await getFileList(selectedBucket);
