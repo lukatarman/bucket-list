@@ -68,4 +68,31 @@ export class Database {
     const fixedMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
     return `${fixedDay}.${fixedMonth}.${currentDate.getFullYear()}`;
   }
+
+  deleteFile({ fileData }) {
+    const bucketContent = JSON.parse(
+      fs.readFileSync("./src/assets/database-response.json", "utf-8")
+    );
+
+    console.log(fileData);
+
+    bucketContent[fileData.selectedBucket.index].files.splice(
+      fileData.selectedFile.index,
+      1
+    );
+
+    fs.writeFileSync(
+      "./src/assets/database-response.json",
+      JSON.stringify(bucketContent),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log("file has been updated");
+      }
+    );
+
+    console.log(bucketContent);
+  }
 }
