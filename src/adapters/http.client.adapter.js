@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getData() {
+export async function getBucketList() {
   return await axios.get("http://localhost:3000/bucketList");
 }
 
