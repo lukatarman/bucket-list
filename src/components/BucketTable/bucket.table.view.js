@@ -12,7 +12,7 @@ const BucketTable = ({
 }) => {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getData();
+      const response = await getBucketList();
       setTableResults(response.data);
     };
 
