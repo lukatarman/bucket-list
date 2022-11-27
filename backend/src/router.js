@@ -24,8 +24,7 @@ export class QueriesRouter {
       "/buckets/add/file",
       { preHandler: upload.single("file") },
       async (request, reply) => {
-        console.log(request.body);
-        this.#controller.addFiles(request.file);
+        this.#controller.addFile([request.file, request.body.name]);
       }
     );
   };
