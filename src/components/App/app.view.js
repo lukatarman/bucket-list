@@ -10,6 +10,10 @@ const App = () => {
   const [selectedBucket, setSelectedBucket] = useState("");
   const [visiblePage, setVisiblePage] = useState("bucket-list");
 
+  const handleBrandClick = () => {
+    setVisiblePage("bucket-list");
+  };
+
   const render = () => {
     if (visiblePage === "bucket-list")
       return (
@@ -28,12 +32,7 @@ const App = () => {
     <div className="app-background">
       <Navbar variant="custom" className="px-3">
         <Container fluid>
-          <h4
-            className="custom-brand"
-            onClick={() => {
-              setVisiblePage("bucket-list");
-            }}
-          >
+          <h4 className="custom-brand" onClick={handleBrandClick}>
             Secure cloud storage
           </h4>
         </Container>
