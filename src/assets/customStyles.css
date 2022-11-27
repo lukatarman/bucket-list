@@ -54,3 +54,7 @@
   border-radius: 1px;
   padding: 3px;
 }
+
+.custom-tab {
+  background-color: purple;
+}
