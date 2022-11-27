@@ -16,9 +16,6 @@ export async function postData({ name, location }) {
   });
 }
 
-export function uploadFiles(file) {
-  console.log("Uploading..");
-  console.log(file);
-  axios.post("http://localhost:3000/buckets/add/files", file);
-  console.log("done uploading");
+export async function uploadFile(file) {
+  await axios.post("http://localhost:3000/buckets/add/file", file);
 }
