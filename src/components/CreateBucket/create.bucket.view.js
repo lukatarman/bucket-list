@@ -1,4 +1,4 @@
-import { getData } from "../../adapters/http.client.adapter.js";
+import { getBucketList } from "../../adapters/http.client.adapter.js";
 import { postData } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ const CreateBucket = ({
 
     await postData({ name: nameInputValue, location: locationvalue });
 
-    const response = await getData();
+    const response = await getBucketList();
     setTableResults(response.data);
   };
 
