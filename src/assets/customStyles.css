@@ -21,6 +21,7 @@
 .btn-custom:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .table-row-bordered {
@@ -30,6 +31,10 @@
 
 .table-row-content:hover {
   cursor: pointer;
+}
+
+.custom-table-row {
+  margin: 0px !important;
 }
 
 .table-head-content {
@@ -57,4 +62,8 @@
 
 .custom-tab {
   background-color: purple;
+}
+
+.content-width {
+  width: 2100px;
 }
