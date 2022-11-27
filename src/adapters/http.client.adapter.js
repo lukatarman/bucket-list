@@ -12,12 +12,18 @@ export async function postData(data) {
   await axios.post("http://localhost:3000/buckets/add/listEntry", data);
 }
 
+export async function deleteBucket(bucketIndex) {
+  console.log("used api call");
+  await axios.delete("http://localhost:3000/buckets/delete/bucket", {
+    data: { bucketIndex },
+  });
+}
+
 export async function uploadFile(file) {
   await axios.post("http://localhost:3000/buckets/add/file", file);
 }
 
 export async function deleteFile(fileData) {
-  console.log(fileData);
   await axios.delete("http://localhost:3000/buckets/delete/file", {
     data: { fileData },
   });
