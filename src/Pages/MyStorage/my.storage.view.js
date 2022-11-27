@@ -2,16 +2,24 @@ import { useState } from "react";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
 
-const MyStorage = () => {
+const MyStorage = ({ selectedBucket }) => {
   const [visibleTab, setVisibleTab] = useState("file-list");
+  const [filesTable, setFilesTable] = useState([]);
 
   const displayTab = () => {
-    if (visibleTab === "file-list") return <FileList />;
-    if (visibleTab === "file-details") return <FileDetails />;
+    if (visibleTab === "file-list")
+      return (
+        <FileList
+          selectedBucket={selectedBucket}
+          filesTable={filesTable}
+          setFilesTable={setFilesTable}
+        />
+      );
+    if (visibleTab === "file-details") return <FileDetails filesTable={filesTable} />;
   };
   return (
     <div>
-      <h1>MyNewStorage</h1>
+      <h1>{selectedBucket}</h1>
       <div>
         <button
           onClick={() => {
