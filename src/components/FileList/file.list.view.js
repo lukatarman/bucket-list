@@ -1,4 +1,6 @@
 import { Row, Col, Button, Table } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { uploadFile } from "../../adapters/http.client.adapter.js";
 import { getFileList } from "../../adapters/http.client.adapter.js";
@@ -47,7 +49,6 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     <tbody>
       <tr
         key={index}
-        className="table-row-content"
         onClick={() => {
           handleFileClick({
             name: file.name,
@@ -55,9 +56,15 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
           });
         }}
       >
-        <td>{file.name}</td>
-        <td>{file.lastModified}</td>
-        <td>{file.size}</td>
+        <td className="d-flex align-items-center p-2">
+          <div>{file.name}</div>
+        </td>
+        <td>
+          <div>{file.lastModified}</div>
+        </td>
+        <td>
+          <div>{file.size}</div>
+        </td>
       </tr>
     </tbody>
   ));
@@ -87,10 +94,10 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
       <Table borderless hover>
         <thead>
           <tr className="table-row-bordered">
-            <th width="50%" className="table-head-content">
+            <th width="5%" className="table-head-content">
               Name
             </th>
-            <th width="20%" className="table-head-content">
+            <th width="5%" className="table-head-content">
               Last Modified
             </th>
             <th className="table-head-content">Size</th>
