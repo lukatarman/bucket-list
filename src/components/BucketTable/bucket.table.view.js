@@ -38,6 +38,7 @@ const BucketTable = ({
       <tbody>
         <tr
           key={index}
+          className="table-row-content"
           onClick={() => {
             setSelectedBucket({
               name: result.name,
