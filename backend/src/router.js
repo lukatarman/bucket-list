@@ -33,8 +33,13 @@ export class QueriesRouter {
     );
 
     server.delete("/buckets/delete/file", async (request, reply) => {
-      console.log(request.body.fileData.name);
       return this.#controller.deleteFile(request.body);
+    });
+
+    server.delete("/buckets/delete/bucket", async (request, reply) => {
+      console.log("Deleting bucket, request body is:");
+      console.log(request.body);
+      return this.#controller.deleteBucket(request.body);
     });
   };
 }
