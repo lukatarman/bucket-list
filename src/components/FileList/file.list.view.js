@@ -18,7 +18,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     fetchData();
   }, [setFilesTable]);
 
-  const handleInputChange = async (e) => {
+  const handleFileUpload = async (e) => {
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
     formData.append("index", selectedBucket.index);
@@ -46,27 +46,27 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   };
 
   const tableRender = filesTable.map((file, index) => (
-    <tbody>
-      <tr
-        key={index}
-        onClick={() => {
-          handleFileClick({
-            name: file.name,
-            index,
-          });
-        }}
-      >
-        <td className="d-flex align-items-center p-2">
-          <div>{file.name}</div>
-        </td>
-        <td>
-          <div>{file.lastModified}</div>
-        </td>
-        <td>
-          <div>{file.size}</div>
-        </td>
-      </tr>
-    </tbody>
+    <tr
+      key={index}
+      onClick={() => {
+        handleFileClick({
+          name: file.name,
+          index,
+        });
+      }}
+    >
+      <td className="d-flex align-items-center">
+        <FontAwesomeIcon icon={faFileLines} size="xl" />
+        <div className="d-flex align-items-center p-2">{file.name}</div>
+      </td>
+
+      <td>
+        <div className="p-2">{file.lastModified}</div>
+      </td>
+      <td>
+        <div className="p-2">{file.size}</div>
+      </td>
+    </tr>
   ));
 
   return (
@@ -87,23 +87,25 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
           <label htmlFor="upload-btn" className="btn-custom px-2 mx-2">
             Upload Object
           </label>
-          <input id="upload-btn" type="file" onChange={handleInputChange} hidden />
+          <input id="upload-btn" type="file" onChange={handleFileUpload} hidden />
         </Col>
       </Row>
 
       <Table borderless hover>
         <thead>
           <tr className="table-row-bordered">
-            <th width="5%" className="table-head-content">
+            <th width="50%" className="table-head-content">
               Name
             </th>
-            <th width="5%" className="table-head-content">
+            <th width="25%" className="table-head-content">
               Last Modified
             </th>
-            <th className="table-head-content">Size</th>
+            <th width="25%" className="table-head-content">
+              Size
+            </th>
           </tr>
         </thead>
-        {tableRender}
+        <tbody>{tableRender}</tbody>
       </Table>
     </div>
   );
