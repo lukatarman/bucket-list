@@ -34,7 +34,13 @@ const BucketTable = ({
 
   const tableRender = tableResults.map((result, index) => {
     return (
-      <div key={index}>
+      <div
+        key={index}
+        onClick={() => {
+          setSelectedBucket(result.name);
+          setVisiblePage("my-storage");
+        }}
+      >
         {result.name}:{result.location}
       </div>
     );
