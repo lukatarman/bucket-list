@@ -17,7 +17,7 @@ const BucketTable = ({
     };
 
     fetchData();
-  }, []);
+  }, [setTableResults]);
 
   const onButtonClick = () => {
     setDisplayCreateButton(false);
