@@ -1,3 +1,4 @@
+import { Container, Tab, Tabs, Sonnet } from "react-bootstrap";
 import { useState } from "react";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
@@ -27,35 +28,28 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
   };
 
   return (
-    <div>
-      <h1>{selectedBucket.name}</h1>
+    <Container fluid className="px-5">
+      <h4 className="my-3">{selectedBucket.name}</h4>
       <div>
-        <div>
-          <button
-            onClick={() => {
-              setVisibleTab("file-list");
-              setVisibleDelete(false);
-            }}
-          >
-            Files
-          </button>
-          <button
-            onClick={() => {
-              setVisibleTab("file-details");
-              setVisibleDelete(true);
-            }}
-          >
-            Details
-          </button>
-        </div>
-        <div>
-          {visibleDelete ? (
-            <button onClick={handleDeleteClick}>Delete Bucket</button>
-          ) : null}
-        </div>
-        {displayTab()}
+        <Tabs
+          className="my-test"
+          id="controlled-tab-example"
+          activeKey={visibleTab}
+          onSelect={(key) => setVisibleTab(key)}
+        >
+          <Tab eventKey="file-list" title="Files" className="my-test-now">
+            <FileList
+              selectedBucket={selectedBucket}
+              filesTable={filesTable}
+              setFilesTable={setFilesTable}
+            />
+          </Tab>
+          <Tab eventKey="file-details" title="Details" className="bg-white pb-3">
+            <FileDetails filesTable={filesTable} selectedBucket={selectedBucket} />
+          </Tab>
+        </Tabs>
       </div>
-    </div>
+    </Container>
   );
 };
 
