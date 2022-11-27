@@ -6,12 +6,10 @@ export class Database {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
   }
 
-  getFileList(bucketName) {
+  getFileList(bucketIndex) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
-
-    const bucketIndex = bucketContent.findIndex((bucket) => bucket.name === bucketName);
 
     console.log(bucketContent[bucketIndex]);
     return bucketContent[bucketIndex].files;
@@ -36,12 +34,10 @@ export class Database {
     );
   }
 
-  async addFile([fileDetails, bucketName]) {
+  async addFile([fileDetails, bucketIndex]) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
-
-    const bucketIndex = bucketContent.findIndex((bucket) => bucket.name === bucketName);
 
     bucketContent[bucketIndex].files.push({
       name: fileDetails.originalname,
