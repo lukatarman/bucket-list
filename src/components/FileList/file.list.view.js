@@ -23,17 +23,23 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     setFilesTable(response.data);
   };
 
+  const tableRender = filesTable.map((file, index) => (
+    <div key={index}>
+      {file.name} {file.lastModified} {file.size}
+    </div>
+  ));
+
   return (
     <div>
       <div>
-        <div>All Files (4)</div>
+        <div>All Files ({filesTable.length})</div>
         <div>
           <input type="button" value="Delete object"></input>
           <label htmlFor="upload-btn">Upload</label>
-          <input id="upload-btn" type="file" onChange={testFunc} hidden />
+          <input id="upload-btn" type="file" onChange={handleInputChange} hidden />
         </div>
       </div>
-      <div>Table</div>
+      <div>{tableRender}</div>
     </div>
   );
 };
