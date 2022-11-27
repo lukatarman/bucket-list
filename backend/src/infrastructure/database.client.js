@@ -1,4 +1,6 @@
 import fs from "fs";
+import { fixBytes } from "../utils/file.size.js";
+
 export class Database {
   getBucketList() {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
@@ -21,7 +23,7 @@ export class Database {
     );
     bucketContent.push(data);
 
-    fs.writeFile(
+    fs.writeFileSync(
       "./src/assets/database-response.json",
       JSON.stringify(bucketContent),
       (err) => {
@@ -34,7 +36,36 @@ export class Database {
     );
   }
 
-  addFiles(file) {
-    console.log(file);
+  async addFile([fileDetails, bucketName]) {
+    const bucketContent = JSON.parse(
+      fs.readFileSync("./src/assets/database-response.json", "utf-8")
+    );
+
+    const bucketIndex = bucketContent.findIndex((bucket) => bucket.name === bucketName);
+
+    bucketContent[bucketIndex].files.push({
+      name: fileDetails.originalname,
+      lastModified: this.fixedDate,
+      size: fixBytes(fileDetails.size),
+    });
+
+    fs.writeFileSync(
+      "./src/assets/database-response.json",
+      JSON.stringify(bucketContent),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log("file has been updated");
+      }
+    );
+  }
+
+  get fixedDate() {
+    const currentDate = new Date();
+    const fixedDay = ("0" + currentDate.getDate()).slice(-2);
+    const fixedMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+    return `${fixedDay}.${fixedMonth}.${currentDate.getFullYear()}`;
   }
 }
