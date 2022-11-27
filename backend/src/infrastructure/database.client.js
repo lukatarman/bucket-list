@@ -11,7 +11,6 @@ export class Database {
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
 
-    console.log(bucketContent[bucketIndex]);
     return bucketContent[bucketIndex].files;
   }
 
@@ -77,8 +76,6 @@ export class Database {
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
 
-    console.log(fileData);
-
     bucketContent[fileData.selectedBucket.index].files.splice(
       fileData.selectedFile.index,
       1
@@ -95,7 +92,5 @@ export class Database {
         console.log("file has been updated");
       }
     );
-
-    console.log(bucketContent);
   }
 }
