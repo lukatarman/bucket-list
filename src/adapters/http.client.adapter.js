@@ -19,3 +19,10 @@ export async function postData({ name, location }) {
 export async function uploadFile(file) {
   await axios.post("http://localhost:3000/buckets/add/file", file);
 }
+
+export async function deleteFile(fileData) {
+  console.log(fileData);
+  await axios.delete("http://localhost:3000/buckets/delete/file", {
+    data: { fileData },
+  });
+}
