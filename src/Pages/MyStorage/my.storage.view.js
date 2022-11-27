@@ -1,10 +1,12 @@
 import { useState } from "react";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
+import { deleteBucket } from "../../adapters/http.client.adapter.js";
 
 const MyStorage = ({ selectedBucket, setVisiblePage }) => {
   const [visibleTab, setVisibleTab] = useState("file-list");
   const [filesTable, setFilesTable] = useState([]);
+  const [visibleDelete, setVisibleDelete] = useState(false);
 
   const displayTab = () => {
     if (visibleTab === "file-list")
@@ -18,24 +20,40 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
     if (visibleTab === "file-details")
       return <FileDetails filesTable={filesTable} selectedBucket={selectedBucket} />;
   };
+
+  const handleDeleteClick = () => {
+    console.log(`Deleting bucket: ${selectedBucket.name}`);
+    deleteBucket(selectedBucket.index);
+    setVisiblePage("bucket-list");
+  };
+
   return (
     <div>
       <h1>{selectedBucket.name}</h1>
       <div>
-        <button
-          onClick={() => {
-            setVisibleTab("file-list");
-          }}
-        >
-          Files
-        </button>
-        <button
-          onClick={() => {
-            setVisibleTab("file-details");
-          }}
-        >
-          Details
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              setVisibleTab("file-list");
+              setVisibleDelete(false);
+            }}
+          >
+            Files
+          </button>
+          <button
+            onClick={() => {
+              setVisibleTab("file-details");
+              setVisibleDelete(true);
+            }}
+          >
+            Details
+          </button>
+        </div>
+        <div>
+          {visibleDelete ? (
+            <button onClick={handleDeleteClick}>Delete Bucket</button>
+          ) : null}
+        </div>
         {displayTab()}
       </div>
     </div>
