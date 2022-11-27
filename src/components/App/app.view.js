@@ -1,7 +1,10 @@
 import BucketList from "../../pages/BucketList/bucket.list.view.js";
 import MyStorage from "../../pages/MyStorage/my.storage.view.js";
+import { Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useState } from "react";
 import "../../assets/global.css";
+import "../../assets/customStyles.css";
 
 const App = () => {
   const [selectedBucket, setSelectedBucket] = useState("");
@@ -22,14 +25,19 @@ const App = () => {
   };
 
   return (
-    <div>
-      <nav
-        onClick={() => {
-          setVisiblePage("bucket-list");
-        }}
-      >
-        Secure could storage
-      </nav>
+    <div className="app-background">
+      <Navbar variant="custom" className="px-3">
+        <Container fluid>
+          <h4
+            className="custom-brand"
+            onClick={() => {
+              setVisiblePage("bucket-list");
+            }}
+          >
+            Secure cloud storage
+          </h4>
+        </Container>
+      </Navbar>
       {render()}
     </div>
   );
