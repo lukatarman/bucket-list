@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { uploadFile } from "../../adapters/http.client.adapter.js";
 import { getFileList } from "../../adapters/http.client.adapter.js";
+import { deleteFile } from "../../adapters/http.client.adapter.js";
 
 const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
+  const [selectedFile, setSelectedFile] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await getFileList(selectedBucket);
@@ -23,8 +26,22 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     setFilesTable(response.data);
   };
 
+  const handleButtonClick = async () => {
+    console.log("delete button clicked");
+    if (selectedFile.name === "") {
+      console.log("please select a file");
+      return;
+    }
+    console.log(`Deleting file: ${selectedFile.name}`);
+    deleteFile({ selectedBucket, selectedFile });
+  };
+
+  const handleFileClick = (selectedFileObject) => {
+    setSelectedFile(selectedFileObject);
+  };
+
   const tableRender = filesTable.map((file, index) => (
-    <div key={index}>
+    <div key={index} onClick={() => handleFileClick({ name: file.name, index })}>
       {file.name} {file.lastModified} {file.size}
     </div>
   ));
@@ -34,7 +51,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
       <div>
         <div>All Files ({filesTable.length})</div>
         <div>
-          <input type="button" value="Delete object"></input>
+          <input type="button" value="Delete object" onClick={handleButtonClick}></input>
           <label htmlFor="upload-btn">Upload</label>
           <input id="upload-btn" type="file" onChange={handleInputChange} hidden />
         </div>
