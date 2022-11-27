@@ -17,7 +17,7 @@ export class QueriesRouter {
     });
 
     server.post("/fileList", async (request, reply) => {
-      return this.#controller.getFileList(request.body.selectedBucket);
+      return this.#controller.getFileList(request.body.selectedBucket.index);
     });
 
     server.post("/buckets/add/listEntry", async (request, reply) => {
@@ -28,7 +28,7 @@ export class QueriesRouter {
       "/buckets/add/file",
       { preHandler: upload.single("file") },
       async (request, reply) => {
-        this.#controller.addFile([request.file, request.body.name]);
+        this.#controller.addFile([request.file, request.body.index]);
       }
     );
 
