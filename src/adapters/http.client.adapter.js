@@ -13,7 +13,6 @@ export async function postData(data) {
 }
 
 export async function deleteBucket(bucketIndex) {
-  console.log("used api call");
   await axios.delete("http://localhost:3000/buckets/delete/bucket", {
     data: { bucketIndex },
   });

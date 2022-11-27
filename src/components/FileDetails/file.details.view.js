@@ -1,5 +1,4 @@
 const FileDetails = ({ selectedBucket }) => {
-  console.log(selectedBucket);
   return (
     <div>
       <div>{selectedBucket.name}</div>

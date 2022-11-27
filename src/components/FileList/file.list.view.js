@@ -27,12 +27,10 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   };
 
   const handleButtonClick = async () => {
-    console.log("delete button clicked");
     if (selectedFile.name === "") {
       console.log("please select a file");
       return;
     }
-    console.log(`Deleting file: ${selectedFile.name}`);
     deleteFile({ selectedBucket, selectedFile });
   };
 
