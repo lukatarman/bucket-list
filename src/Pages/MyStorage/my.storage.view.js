@@ -15,7 +15,8 @@ const MyStorage = ({ selectedBucket }) => {
           setFilesTable={setFilesTable}
         />
       );
-    if (visibleTab === "file-details") return <FileDetails filesTable={filesTable} />;
+    if (visibleTab === "file-details")
+      return <FileDetails filesTable={filesTable} selectedBucket={selectedBucket} />;
   };
   return (
     <div>
