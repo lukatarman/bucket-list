@@ -1,4 +1,6 @@
-import { Row, Col, Form, Dropdown, Button, ButtonGroup } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import { getBucketList } from "../../adapters/http.client.adapter.js";
 import { postData } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
@@ -9,13 +11,13 @@ const CreateBucket = ({
   setTableResults,
 }) => {
   const [nameInputValue, setNameInputValue] = useState("");
-  const [locationvalue, setLocationValue] = useState("");
+  const [locationValue, setLocationValue] = useState("Kranj");
 
   const handleSubmit = async () => {
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
 
-    await postData({ name: nameInputValue, location: locationvalue });
+    await postData({ name: nameInputValue, location: locationValue });
 
     const response = await getBucketList();
     setTableResults(response.data);
@@ -26,48 +28,38 @@ const CreateBucket = ({
   };
 
   const onLocationChange = (e) => {
-    setLocationValue(e.target.value);
+    setLocationValue(e.value);
+    console.log(locationValue);
   };
 
   return (
     <div>
       <div className="px-3">Create new bucket</div>
       <form className="bg-white p-3 mb-3" onSubmit={handleSubmit}>
-        <Row>
+        <Row className="mb-4">
           <Col>
-            <Form.Label htmlFor="name">Bucket Name*</Form.Label>
+            <Form.Label>Bucket Name*</Form.Label>
             <Form.Control
+              className="custom-form-control"
               type="text"
-              name="name"
-              id="name"
               value={nameInputValue}
               onChange={onNameChange}
             ></Form.Control>
           </Col>
           <Col>
-            <Form.Label htmlFor="name">Bucket Location*</Form.Label>
-            <Dropdown as={ButtonGroup}>
-              <Button className="py-0" variant="custom-dropdown">
-                Split Button
-              </Button>
-
-              <Dropdown.Toggle
-                className="py-0"
-                split
-                variant="custom-dropdown-toggler"
-                id="dropdown-split-basic"
-              />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <Form.Label>Bucket Location*</Form.Label>
+            <Dropdown
+              controlClassName="custom-dropdown"
+              onChange={onLocationChange}
+              options={["Kranj", "Ljubljana"]}
+              placeholder={"Kranj"}
+            />
           </Col>
         </Row>
 
-        <button type="submit">Create Bucket</button>
+        <Button className="py-0" variant="custom" type="submit">
+          Create Bucket
+        </Button>
       </form>
     </div>
   );
