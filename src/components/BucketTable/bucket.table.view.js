@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getData } from "../../adapters/http.client.adapter.js";
+import { useEffect } from "react";
+import { getBucketList } from "../../adapters/http.client.adapter.js";
 
 const BucketTable = ({
   setDisplayCreateBucket,
