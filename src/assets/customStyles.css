@@ -28,13 +28,29 @@
   background-color: #cccccc;
 }
 
+.table-row-content:hover {
+  cursor: pointer;
+}
+
 .table-head-content {
   padding: 0px 5px !important;
 }
 
-.btn-custom-dropdown {
-  background-color: white;
-  outline: 2px solid black;
+.custom-form-control {
+  width: 80%;
+  padding-top: 3px;
+  padding-bottom: 3px;
   border-radius: 1px;
-  width: 100%;
+}
+
+.custom-form-control:focus {
+  border: none;
+  outline: 2px solid black;
+  box-shadow: none;
+}
+
+.custom-dropdown {
+  width: 80%;
+  border-radius: 1px;
+  padding: 3px;
 }
