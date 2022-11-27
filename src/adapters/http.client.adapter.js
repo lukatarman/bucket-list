@@ -8,12 +8,8 @@ export async function getFileList(selectedBucket) {
   return await axios.post("http://localhost:3000/fileList", { selectedBucket });
 }
 
-export async function postData({ name, location }) {
-  await axios.post("http://localhost:3000/buckets/add/listEntry", {
-    name,
-    location,
-    files: [],
-  });
+export async function postData(data) {
+  await axios.post("http://localhost:3000/buckets/add/listEntry", data);
 }
 
 export async function uploadFile(file) {

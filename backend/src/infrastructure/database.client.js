@@ -15,11 +15,18 @@ export class Database {
     return bucketContent[bucketIndex].files;
   }
 
-  addBucketListEntry(data) {
+  addBucketListEntry({ name, location }) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
-    bucketContent.push(data);
+
+    const newEntry = {
+      name,
+      location,
+      size: "4.9 GB",
+      files: [],
+    };
+    bucketContent.push(newEntry);
 
     fs.writeFileSync(
       "./src/assets/database-response.json",
