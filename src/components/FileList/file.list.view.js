@@ -2,11 +2,17 @@ import { useEffect } from "react";
 import { uploadFile } from "../../adapters/http.client.adapter.js";
 import { getFileList } from "../../adapters/http.client.adapter.js";
 
-const FileList = () => {
-  const testFunc = (e) => {
-    console.log("Submitted");
-    console.log(e.target.files[0]);
+const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getFileList(selectedBucket);
+      setFilesTable(response.data);
+    };
 
+    fetchData();
+  }, [setFilesTable]);
+
+  const handleInputChange = async (e) => {
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
     uploadFiles(formData);
