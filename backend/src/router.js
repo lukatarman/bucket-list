@@ -13,7 +13,11 @@ export class QueriesRouter {
 
   routes = async (server, options) => {
     server.get("/bucketList", async (request, reply) => {
-      return await this.#controller.getBucketList();
+      return this.#controller.getBucketList();
+    });
+
+    server.post("/fileList", async (request, reply) => {
+      return this.#controller.getFileList(request.body.selectedBucket);
     });
 
     server.post("/buckets/add/listEntry", async (request, reply) => {
