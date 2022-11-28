@@ -23,11 +23,11 @@ const CreateBucket = ({
     setTableResults(response.data);
   };
 
-  const onNameChange = (e) => {
+  const handleNameChange = (e) => {
     setNameInputValue(e.target.value);
   };
 
-  const onLocationChange = (e) => {
+  const handleLocationChange = (e) => {
     setLocationValue(e.value);
   };
 
@@ -42,7 +42,7 @@ const CreateBucket = ({
               className="custom-form-control"
               type="text"
               value={nameInputValue}
-              onChange={onNameChange}
+              onChange={handleNameChange}
             ></Form.Control>
           </Col>
           <Col>
@@ -50,7 +50,7 @@ const CreateBucket = ({
             <Dropdown
               controlClassName="dropdown-custom"
               menuClassName="dropdown-custom"
-              onChange={onLocationChange}
+              onChange={handleLocationChange}
               options={["Kranj", "Ljubljana"]}
               placeholder={"Kranj"}
             />
