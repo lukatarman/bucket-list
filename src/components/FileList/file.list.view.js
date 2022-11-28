@@ -56,7 +56,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
       }}
     >
       <td className="d-flex align-items-center">
-        <FontAwesomeIcon icon={faFileLines} size="xl" />
+        <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
         <div className="d-flex align-items-center p-2">{file.name}</div>
       </td>
 
@@ -91,10 +91,10 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
         </Col>
       </Row>
 
-      <Table borderless hover>
+      <Table hover>
         <thead>
           <tr className="table-row-bordered">
-            <th width="50%" className="table-head-content">
+            <th width="55%" className="table-head-content">
               Name
             </th>
             <th width="25%" className="table-head-content">
@@ -105,7 +105,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
             </th>
           </tr>
         </thead>
-        <tbody>{tableRender}</tbody>
+        <tbody className="bordered-table-custom mb-5">{tableRender}</tbody>
       </Table>
     </div>
   );
