@@ -18,13 +18,13 @@ export async function getFiles(bucketIndex) {
   return await axios.get(`http://localhost:3000/buckets/${bucketIndex}/files`);
 }
 
-export async function uploadFile(file, index) {
+export async function uploadFile(file, bucketIndex) {
   console.log(file);
-  await axios.post(`http://localhost:3000/buckets/${index}/files`, file);
+  await axios.post(`http://localhost:3000/buckets/${bucketIndex}/files`, file);
 }
 
-export async function deleteFile(fileData) {
-  await axios.delete(`http://localhost:3000/buckets/${fileData}/files`, {
+export async function deleteFile(bucketIndex) {
+  await axios.delete(`http://localhost:3000/buckets/${bucketIndex}/files`, {
     data: { fileData },
   });
 }
