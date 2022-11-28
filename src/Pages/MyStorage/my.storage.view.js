@@ -20,8 +20,8 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
     setVisiblePage("bucket-list");
   };
 
-  const handleTabSelect = (key) => {
-    setVisibleTab(key);
+  const handleTabSelect = (tab) => {
+    setVisibleTab(tab);
   };
 
   return (
