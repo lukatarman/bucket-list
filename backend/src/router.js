@@ -38,8 +38,9 @@ export class QueriesRouter {
       }
     );
 
-    server.delete("/buckets/delete/file", async (request, reply) => {
-      return this.#controller.deleteFile(request.body);
+    server.delete("/buckets/:id/files", async (request, reply) => {
+      const id = parseInt(request.params.id);
+      return this.#controller.deleteFile(id);
     });
   };
 }

@@ -24,7 +24,7 @@ export async function uploadFile(file, index) {
 }
 
 export async function deleteFile(fileData) {
-  await axios.delete("http://localhost:3000/buckets/delete/file", {
+  await axios.delete(`http://localhost:3000/buckets/${fileData}/files`, {
     data: { fileData },
   });
 }

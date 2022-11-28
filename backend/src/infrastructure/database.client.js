@@ -94,12 +94,12 @@ export class Database {
     return `${fixedDay}.${fixedMonth}.${currentDate.getFullYear()}`;
   }
 
-  deleteFile({ fileData }) {
+  deleteFile(bucketIndex) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
 
-    bucketContent[fileData.index].files.pop();
+    bucketContent[bucketIndex].files.pop();
 
     fs.writeFileSync(
       "./src/assets/database-response.json",
