@@ -61,6 +61,7 @@ export class Database {
   }
 
   async addFile([fileDetails, bucketIndex]) {
+    console.log(fileDetails);
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
@@ -96,10 +97,7 @@ export class Database {
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
 
-    bucketContent[fileData.selectedBucket.index].files.splice(
-      fileData.selectedFile.index,
-      1
-    );
+    bucketContent[fileData.index].files.pop();
 
     fs.writeFileSync(
       "./src/assets/database-response.json",

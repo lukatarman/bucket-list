@@ -19,6 +19,7 @@ export async function deleteBucket(bucketIndex) {
 }
 
 export async function uploadFile(file) {
+  console.log(`Data sent to buckets/add/file API: ${file}`);
   await axios.post("http://localhost:3000/buckets/add/file", file);
 }
 
