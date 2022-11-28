@@ -52,7 +52,7 @@ export class Database {
     );
   }
 
-  getFileList(bucketIndex) {
+  getFiles(bucketIndex) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );

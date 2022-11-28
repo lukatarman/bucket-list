@@ -24,8 +24,9 @@ export class QueriesRouter {
       return this.#controller.deleteBucket(request.body);
     });
 
-    server.post("/fileList", async (request, reply) => {
-      return this.#controller.getFileList(request.body.selectedBucket.index);
+    server.get("/buckets/:id/files", async (request, reply) => {
+      const id = parseInt(request.params.id);
+      return this.#controller.getFiles(id);
     });
 
     server.post(

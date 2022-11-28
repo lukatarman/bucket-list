@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { uploadFile } from "../../adapters/http.client.adapter.js";
-import { getFileList } from "../../adapters/http.client.adapter.js";
+import { getFiles } from "../../adapters/http.client.adapter.js";
 import { deleteFile } from "../../adapters/http.client.adapter.js";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 
@@ -13,7 +13,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getFileList(selectedBucket);
+      const response = await getFiles(selectedBucket.index);
       setFilesTable(response.data);
     };
 
@@ -26,7 +26,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     formData.append("index", selectedBucket.index);
     await uploadFile(formData);
 
-    const response = await getFileList(selectedBucket);
+    const response = await getFiles(selectedBucket.index);
 
     setFilesTable(response.data);
   };
@@ -43,7 +43,7 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
     console.log("handling delete");
     await deleteFile(selectedBucket);
 
-    const response = await getFileList(selectedBucket);
+    const response = await getFiles(selectedBucket.index);
 
     setFilesTable(response.data);
   };

@@ -14,8 +14,8 @@ export async function deleteBucket(bucketIndex) {
   });
 }
 
-export async function getFileList(selectedBucket) {
-  return await axios.post("http://localhost:3000/fileList", { selectedBucket });
+export async function getFiles(bucketIndex) {
+  return await axios.get(`http://localhost:3000/buckets/${bucketIndex}/files`);
 }
 
 export async function uploadFile(file) {
