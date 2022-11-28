@@ -30,10 +30,11 @@ export class QueriesRouter {
     });
 
     server.post(
-      "/buckets/add/file",
+      "/buckets/:id/files",
       { preHandler: upload.single("file") },
       async (request, reply) => {
-        this.#controller.addFile([request.file, request.body.index]);
+        const id = parseInt(request.params.id);
+        this.#controller.addFile(request.file, id);
       }
     );
 

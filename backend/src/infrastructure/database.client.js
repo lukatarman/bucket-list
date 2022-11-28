@@ -6,6 +6,8 @@ export class Database {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
   }
 
+  // todo rename to storageClient
+
   createBucket({ name, location }) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
@@ -60,7 +62,7 @@ export class Database {
     return bucketContent[bucketIndex].files;
   }
 
-  async addFile([fileDetails, bucketIndex]) {
+  async addFile(fileDetails, bucketIndex) {
     console.log(fileDetails);
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
