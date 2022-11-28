@@ -12,8 +12,8 @@ export class QueriesRouter {
   }
 
   routes = async (server, options) => {
-    server.get("/bucketList", async (request, reply) => {
-      return this.#controller.getBucketList();
+    server.get("/buckets", async (request, reply) => {
+      return this.#controller.getBuckets();
     });
 
     server.post("/fileList", async (request, reply) => {

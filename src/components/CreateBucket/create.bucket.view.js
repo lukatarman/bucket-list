@@ -1,7 +1,7 @@
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { getBucketList } from "../../adapters/http.client.adapter.js";
+import { getBuckets } from "../../adapters/http.client.adapter.js";
 import { postData } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const CreateBucket = ({
 
     await postData({ name: nameInputValue, location: locationValue });
 
-    const response = await getBucketList();
+    const response = await getBuckets();
     setTableResults(response.data);
   };
 

@@ -2,7 +2,7 @@ import fs from "fs";
 import { fixBytes } from "../utils/file.size.js";
 
 export class Database {
-  getBucketList() {
+  getBuckets() {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
   }
 

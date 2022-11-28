@@ -1,6 +1,6 @@
 import { Col, Row, Button, Table } from "react-bootstrap";
 import { useEffect } from "react";
-import { getBucketList } from "../../adapters/http.client.adapter.js";
+import { getBuckets } from "../../adapters/http.client.adapter.js";
 
 const BucketTable = ({
   setDisplayCreateBucket,
@@ -13,7 +13,7 @@ const BucketTable = ({
 }) => {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getBucketList();
+      const response = await getBuckets();
       setTableResults(response.data);
     };
 
@@ -57,8 +57,8 @@ const BucketTable = ({
   });
 
   return (
-    <div className="p-4 bg-white">
-      <Row className="mb-4">
+    <div className="p-3 bg-white">
+      <Row className="mb-3">
         <Col className="d-flex align-items-center">
           <div>All Buckets ({tableResults.length})</div>
         </Col>
