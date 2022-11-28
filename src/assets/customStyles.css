@@ -3,7 +3,7 @@
   color: #fdfcfb;
 }
 
-.custom-brand:hover {
+.brand-custom:hover {
   cursor: pointer;
 }
 
@@ -33,10 +33,6 @@
   cursor: pointer;
 }
 
-.custom-table-row {
-  margin: 0px !important;
-}
-
 .table-head-content {
   padding: 0px 5px !important;
 }
@@ -54,7 +50,7 @@
   box-shadow: none;
 }
 
-.custom-dropdown {
+.dropdown-custom {
   width: 80%;
   border-radius: 1px;
   padding: 3px;

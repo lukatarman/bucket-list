@@ -31,7 +31,7 @@ const App = () => {
     <div className="app-background">
       <Navbar variant="custom" className="px-3">
         <Container fluid>
-          <h4 className="custom-brand" onClick={handleBrandClick}>
+          <h4 className="brand-custom" onClick={handleBrandClick}>
             Secure cloud storage
           </h4>
         </Container>
