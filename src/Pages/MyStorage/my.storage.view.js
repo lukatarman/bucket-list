@@ -34,8 +34,7 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
       <h4 className="my-3">{selectedBucket.name}</h4>
       <div className="element-position-custom">
         <Tabs
-          className="custom-test"
-          id="controlled-tab-example"
+          className="tabs-outline-custom"
           activeKey={visibleTab}
           onSelect={handleTabSelect}
         >
@@ -55,11 +54,11 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
             />
           </Tab>
         </Tabs>
-        <div className="custom-button-position p-1">
+        <div className="button-position-custom p-1">
           <div>
             {!visibleDelete ? (
               <button
-                className="custom-delete-button px-2"
+                className="delete-buttom-custom px-2"
                 onClick={() => setShowDetailsAlert(true)}
               >
                 Delete Bucket
