@@ -1,16 +1,10 @@
 import { Button, Modal } from "react-bootstrap";
-import { deleteFile } from "../../adapters/http.client.adapter.js";
-import { getFileList } from "../../adapters/http.client.adapter.js";
 
-const AlertPopup = ({ showAlert, setShowAlert, selectedBucket, setFilesTable }) => {
+const AlertPopup = ({ showAlert, setShowAlert, handleDelete }) => {
   const handleClose = () => setShowAlert(false);
 
-  const handleDeleteConfirm = async () => {
-    await deleteFile(selectedBucket);
-
-    const response = await getFileList(selectedBucket);
-
-    setFilesTable(response.data);
+  const handleDeleteConfirm = () => {
+    handleDelete();
     handleClose();
   };
 
