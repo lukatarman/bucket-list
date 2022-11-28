@@ -1,0 +1,12 @@
+[
+  {
+    "name": "BestStorage",
+    "location": "Kranj",
+    "size": 3440011570,
+    "files": [
+      { "name": "FileName01", "lastModified": "06.09.2015", "size": "2 MB" },
+      { "name": "FileName02", "lastModified": "05.01.2015", "size": "100 KB" },
+      { "name": "FileName03", "lastModified": "12.11.2016", "size": "2 MB" }
+    ]
+  }
+]
