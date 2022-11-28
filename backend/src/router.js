@@ -16,12 +16,12 @@ export class QueriesRouter {
       return this.#controller.getBuckets();
     });
 
-    server.post("/fileList", async (request, reply) => {
-      return this.#controller.getFileList(request.body.selectedBucket.index);
+    server.post("/buckets", async (request, reply) => {
+      this.#controller.createBucket(request.body);
     });
 
-    server.post("/buckets/add/listEntry", async (request, reply) => {
-      this.#controller.addBucketListEntry(request.body);
+    server.post("/fileList", async (request, reply) => {
+      return this.#controller.getFileList(request.body.selectedBucket.index);
     });
 
     server.post(

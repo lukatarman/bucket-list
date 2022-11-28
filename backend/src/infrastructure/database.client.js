@@ -6,15 +6,7 @@ export class Database {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
   }
 
-  getFileList(bucketIndex) {
-    const bucketContent = JSON.parse(
-      fs.readFileSync("./src/assets/database-response.json", "utf-8")
-    );
-
-    return bucketContent[bucketIndex].files;
-  }
-
-  addBucketListEntry({ name, location }) {
+  createBucket({ name, location }) {
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
@@ -38,6 +30,14 @@ export class Database {
         console.log("file has been updated");
       }
     );
+  }
+
+  getFileList(bucketIndex) {
+    const bucketContent = JSON.parse(
+      fs.readFileSync("./src/assets/database-response.json", "utf-8")
+    );
+
+    return bucketContent[bucketIndex].files;
   }
 
   async deleteBucket({ bucketIndex }) {

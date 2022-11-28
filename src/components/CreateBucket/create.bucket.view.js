@@ -2,7 +2,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
-import { postData } from "../../adapters/http.client.adapter.js";
+import { createBucket } from "../../adapters/http.client.adapter.js";
 import { useState } from "react";
 
 const CreateBucket = ({
@@ -17,7 +17,7 @@ const CreateBucket = ({
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
 
-    await postData({ name: nameInputValue, location: locationValue });
+    await createBucket({ name: nameInputValue, location: locationValue });
 
     const response = await getBuckets();
     setTableResults(response.data);

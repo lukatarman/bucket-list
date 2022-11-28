@@ -4,12 +4,12 @@ export async function getBuckets() {
   return await axios.get("http://localhost:3000/buckets");
 }
 
-export async function getFileList(selectedBucket) {
-  return await axios.post("http://localhost:3000/fileList", { selectedBucket });
+export async function createBucket(data) {
+  await axios.post("http://localhost:3000/buckets", data);
 }
 
-export async function postData(data) {
-  await axios.post("http://localhost:3000/buckets/add/listEntry", data);
+export async function getFileList(selectedBucket) {
+  return await axios.post("http://localhost:3000/fileList", { selectedBucket });
 }
 
 export async function deleteBucket(bucketIndex) {
