@@ -32,7 +32,7 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
         handleDelete={handleDeleteClick}
       />
       <h4 className="my-3">{selectedBucket.name}</h4>
-      <div className="custom-position">
+      <div className="element-position-custom">
         <Tabs
           className="custom-test"
           id="controlled-tab-example"
