@@ -3,7 +3,6 @@ import MyStorage from "../../pages/MyStorage/my.storage.view.js";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
-import "../../assets/global.css";
 import "../../assets/customStyles.css";
 
 const App = () => {
