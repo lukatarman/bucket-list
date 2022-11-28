@@ -29,7 +29,6 @@ const CreateBucket = ({
 
   const onLocationChange = (e) => {
     setLocationValue(e.value);
-    console.log(locationValue);
   };
 
   return (
@@ -49,7 +48,8 @@ const CreateBucket = ({
           <Col>
             <Form.Label>Bucket Location*</Form.Label>
             <Dropdown
-              controlClassName="custom-dropdown"
+              controlClassName="dropdown-custom"
+              menuClassName="dropdown-custom"
               onChange={onLocationChange}
               options={["Kranj", "Ljubljana"]}
               placeholder={"Kranj"}
