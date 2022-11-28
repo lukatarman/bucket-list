@@ -57,8 +57,8 @@ const BucketTable = ({
   });
 
   return (
-    <div className="p-3 bg-white">
-      <Row className="mb-3">
+    <div className="p-4 bg-white">
+      <Row className="mb-4">
         <Col className="d-flex align-items-center">
           <div>All Buckets ({tableResults.length})</div>
         </Col>
