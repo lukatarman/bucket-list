@@ -1,9 +1,9 @@
-import { Database } from "./infrastructure/database.client.js";
+import { StorageClient } from "./infrastructure/storage.client.js";
 import { QueriesRouter } from "./router.js";
 import { WebServer } from "./infrastructure/web.server.js";
 
-const database = new Database();
-const queriesRouter = new QueriesRouter(database);
+const storageClient = new StorageClient();
+const queriesRouter = new QueriesRouter(storageClient);
 const webServer = new WebServer(queriesRouter);
 
 webServer.start();

@@ -1,12 +1,10 @@
 import fs from "fs";
 import { fixBytes } from "../utils/file.size.js";
 
-export class Database {
+export class StorageClient {
   getBuckets() {
     return fs.readFileSync("./src/assets/database-response.json", "utf-8");
   }
-
-  // todo rename to storageClient
 
   createBucket({ name, location }) {
     const bucketContent = JSON.parse(
