@@ -19,12 +19,9 @@ export async function getFiles(bucketIndex) {
 }
 
 export async function uploadFile(file, bucketIndex) {
-  console.log(file);
   await axios.post(`http://localhost:3000/buckets/${bucketIndex}/files`, file);
 }
 
 export async function deleteFile(bucketIndex) {
-  await axios.delete(`http://localhost:3000/buckets/${bucketIndex}/files`, {
-    data: { fileData },
-  });
+  await axios.delete(`http://localhost:3000/buckets/${bucketIndex}/files`);
 }

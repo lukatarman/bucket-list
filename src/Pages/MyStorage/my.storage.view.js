@@ -12,9 +12,7 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
   const [showDetailsAlert, setShowDetailsAlert] = useState(false);
 
   useEffect(() => {
-    console.log("visible tab component changed");
     setVisibleDelete(!visibleDelete);
-    console.log(`swapped visible delete to ${visibleDelete}`);
   }, [visibleTab]);
 
   const handleDeleteClick = () => {
@@ -24,7 +22,6 @@ const MyStorage = ({ selectedBucket, setVisiblePage }) => {
 
   const handleTabSelect = (key) => {
     setVisibleTab(key);
-    console.log(`visible tab changed to ${key}`);
   };
 
   return (

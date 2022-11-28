@@ -31,15 +31,10 @@ const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   };
 
   const handleDeleteButtonClick = async () => {
-    if (selectedFile.name === "") {
-      console.log("please select a file");
-      return;
-    }
     setShowAlert(true);
   };
 
   const handleDelete = async () => {
-    console.log("handling delete");
     await deleteFile(selectedBucket.index);
 
     const response = await getFiles(selectedBucket.index);

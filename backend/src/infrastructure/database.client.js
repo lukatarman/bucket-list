@@ -16,7 +16,7 @@ export class Database {
     const newEntry = {
       name,
       location,
-      size: "4.9 GB",
+      size: 1073741824,
       files: [],
     };
     bucketContent.push(newEntry);
@@ -63,7 +63,6 @@ export class Database {
   }
 
   async addFile(fileDetails, bucketIndex) {
-    console.log(fileDetails);
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );

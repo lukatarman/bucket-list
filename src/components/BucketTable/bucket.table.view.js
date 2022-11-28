@@ -35,9 +35,8 @@ const BucketTable = ({
 
   const tableRender = tableResults.map((result, index) => {
     return (
-      <tbody>
+      <tbody key={index}>
         <tr
-          key={index}
           className="table-row-content"
           onClick={() => {
             setSelectedBucket({
