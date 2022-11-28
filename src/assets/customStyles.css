@@ -64,10 +64,6 @@
   background-color: purple;
 }
 
-.content-width {
-  width: 2100px;
-}
-
 .bordered-table-custom {
   outline: 1px solid black;
 }
