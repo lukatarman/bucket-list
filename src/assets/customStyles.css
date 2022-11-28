@@ -14,7 +14,7 @@
 
 .btn-custom {
   background-color: white;
-  outline: 2px solid black;
+  border: 2px solid black;
   border-radius: 1px;
 }
 
@@ -74,8 +74,8 @@
 
 .custom-button-position {
   position: absolute;
-  top: 30px;
-  right: 5px;
+  top: 0px;
+  right: 0px;
 }
 
 .custom-position {
@@ -83,7 +83,7 @@
 }
 
 .custom-delete-button {
-  outline: none;
+  border: 2px solid black;
   background-color: white;
 }
 
@@ -91,4 +91,16 @@
   background-color: black;
   color: white;
   cursor: pointer;
+}
+
+.custom-test {
+  border: none !important;
+}
+
+.custom-test * {
+  border: none !important;
+}
+
+.custom-modal {
+  margin: auto;
 }
