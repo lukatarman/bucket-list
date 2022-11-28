@@ -3,7 +3,7 @@ import { fixBytes } from "../utils/file.size.js";
 
 export class StorageClient {
   getBuckets() {
-    return fs.readFileSync("./src/assets/database-response.json", "utf-8");
+    return JSON.parse(fs.readFileSync("./src/assets/database-response.json", "utf-8"));
   }
 
   createBucket({ name, location }) {
@@ -14,7 +14,7 @@ export class StorageClient {
     const newEntry = {
       name,
       location,
-      size: 1073741824,
+      size: "4.9 GB",
       files: [],
     };
     bucketContent.push(newEntry);
