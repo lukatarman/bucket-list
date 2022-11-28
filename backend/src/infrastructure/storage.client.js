@@ -61,6 +61,7 @@ export class StorageClient {
   }
 
   async addFile(fileDetails, bucketIndex) {
+    console.log(fileDetails);
     const bucketContent = JSON.parse(
       fs.readFileSync("./src/assets/database-response.json", "utf-8")
     );
@@ -69,6 +70,7 @@ export class StorageClient {
       name: fileDetails.originalname,
       lastModified: this.fixedDate,
       size: fixBytes(fileDetails.size),
+      buffer: fileDetails.buffer,
     });
 
     fs.writeFileSync(
