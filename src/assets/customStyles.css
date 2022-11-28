@@ -67,3 +67,28 @@
 .content-width {
   width: 2100px;
 }
+
+.bordered-table-custom {
+  outline: 1px solid black;
+}
+
+.custom-button-position {
+  position: absolute;
+  top: 30px;
+  right: 5px;
+}
+
+.custom-position {
+  position: relative;
+}
+
+.custom-delete-button {
+  outline: none;
+  background-color: white;
+}
+
+.custom-delete-button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
