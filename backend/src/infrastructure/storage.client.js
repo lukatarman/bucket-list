@@ -1,6 +1,8 @@
 import fs from "fs";
 import { Bucket } from "../models/bucket.js";
+import { File } from "../models/file.js";
 import { fixBytes } from "../utils/file.size.js";
+import { fixDate } from "../utils/date.js";
 
 export class StorageClient {
   getBuckets() {
