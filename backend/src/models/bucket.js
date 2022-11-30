@@ -9,8 +9,17 @@ export class Bucket {
     const bucket    = new Bucket;
     bucket.name     = data.name;
     bucket.location = data.location;
-    bucket.size     = 5368709120;
+    bucket.size     = 1024;
     bucket.files    = [];
     return bucket;
+  }
+
+  static subtractSize(bucket, fileDetails) {
+    const copy = new Bucket();
+    copy.name = bucket.name;
+    copy.location = bucket.location;
+    copy.size = bucket.size - fileDetails.size;
+    copy.files = bucket.files;
+    return copy;
   }
 }
