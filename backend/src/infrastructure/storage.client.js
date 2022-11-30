@@ -18,9 +18,9 @@ export class StorageClient {
   }
 
   async deleteBucket({ bucketIndex }) {
-    const existingContent = this.#getParsedFile();
+    const existingData = this.#getParsedFile();
 
-    existingContent.splice(bucketIndex, 1);
+    existingData.splice(bucketIndex, 1);
 
     this.#saveFileWithNewData(existingData);
   }
