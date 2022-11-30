@@ -14,12 +14,21 @@ export class Bucket {
     return bucket;
   }
 
-  static subtractSize(bucket, fileDetails) {
+  static subtractSize(bucket, fileSize) {
     const copy = new Bucket();
     copy.name = bucket.name;
     copy.location = bucket.location;
-    copy.size = bucket.size - fileDetails.size;
+    copy.size = bucket.size - fileSize;
     copy.files = bucket.files;
     return copy;
   }
+
+  // static addSize(bucket, fileDetails) {
+  //   const copy = new Bucket();
+  //   copy.name = bucket.name;
+  //   copy.location = bucket.location;
+  //   copy.size = bucket.size - fileDetails.size;
+  //   copy.files = bucket.files;
+  //   return copy;
+  // }
 }

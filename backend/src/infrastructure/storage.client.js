@@ -37,7 +37,7 @@ export class StorageClient {
     const existingData = this.#getParsedFile();
     let currentBucket = existingData[bucketIndex];
 
-    currentBucket = Bucket.subtractSize(currentBucket, fileDetails);
+    currentBucket = Bucket.subtractSize(currentBucket, fileDetails.size);
     currentBucket.files.push(new File(fileDetails));
 
     existingData[bucketIndex] = currentBucket;
