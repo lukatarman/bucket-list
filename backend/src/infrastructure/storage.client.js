@@ -42,23 +42,11 @@ export class StorageClient {
   }
 
   deleteFile(bucketIndex) {
-    const bucketContent = JSON.parse(
-      fs.readFileSync("./src/assets/database-response.json", "utf-8")
-    );
+    const existingData = this.#getParsedFile();
 
-    bucketContent[bucketIndex].files.pop();
+    existingData[bucketIndex].files.pop();
 
-    fs.writeFileSync(
-      "./src/assets/database-response.json",
-      JSON.stringify(bucketContent),
-      (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log("file has been updated");
-      }
-    );
+    this.#saveFileWithNewData(existingData);
   }
 
   #getParsedFile() {
