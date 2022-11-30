@@ -14,21 +14,23 @@ export class Bucket {
     return bucket;
   }
 
+  //prettier-ignore
   static subtractSize(bucket, fileSize) {
-    const copy = new Bucket();
-    copy.name = bucket.name;
+    const copy    = new Bucket();
+    copy.name     = bucket.name;
     copy.location = bucket.location;
-    copy.size = bucket.size - fileSize;
-    copy.files = bucket.files;
+    copy.size     = bucket.size - fileSize;
+    copy.files    = bucket.files;
     return copy;
   }
 
-  // static addSize(bucket, fileDetails) {
-  //   const copy = new Bucket();
-  //   copy.name = bucket.name;
-  //   copy.location = bucket.location;
-  //   copy.size = bucket.size - fileDetails.size;
-  //   copy.files = bucket.files;
-  //   return copy;
-  // }
+  //prettier-ignore
+  static addSize(bucket, fileSize) {
+    const copy    = new Bucket();
+    copy.name     = bucket.name;
+    copy.location = bucket.location;
+    copy.size     = bucket.size + fileSize;
+    copy.files    = bucket.files;
+    return copy;
+  }
 }
