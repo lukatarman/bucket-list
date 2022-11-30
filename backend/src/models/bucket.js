@@ -5,11 +5,11 @@ export class Bucket {
   files;
 
   //prettier-ignore
-  static newEntry(data) {
+  static createBucket(data) {
     const bucket    = new Bucket;
     bucket.name     = data.name;
     bucket.location = data.location;
-    bucket.size     = 1024;
+    bucket.size     = 5368709120;
     bucket.files    = [];
     return bucket;
   }
