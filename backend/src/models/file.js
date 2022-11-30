@@ -6,7 +6,6 @@ export class File {
 
   //prettier-ignore
   constructor(fileDetails) {
-    console.log(fileDetails);
     this.name         = fileDetails.originalname;
     this.lastModified = fileDetails.lastModified;
     this.size         = fileDetails.size;
