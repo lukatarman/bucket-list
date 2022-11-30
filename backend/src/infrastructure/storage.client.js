@@ -35,10 +35,12 @@ export class StorageClient {
 
   async addFile(fileDetails, bucketIndex) {
     const existingData = this.#getParsedFile();
+    let currentBucket = existingData[bucketIndex];
 
-    fileDetails.lastModified = fixDate();
+    currentBucket = Bucket.subtractSize(currentBucket, fileDetails);
+    currentBucket.files.push(new File(fileDetails));
 
-    existingData[bucketIndex].files.push(new File(fileDetails));
+    existingData[bucketIndex] = currentBucket;
 
     this.#saveFileWithNewData(existingData);
   }
