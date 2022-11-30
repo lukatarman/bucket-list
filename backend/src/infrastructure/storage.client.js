@@ -8,41 +8,27 @@ export class StorageClient {
   }
 
   createBucket(data) {
-    const bucketContent = this.#getParsedFile();
+    const existingData = this.#getParsedFile();
 
     const newBucket = Bucket.newEntry(data);
 
-    bucketContent.push(newBucket);
+    existingData.push(newBucket);
 
-    this.#saveFileWithNewData(bucketContent);
+    this.#saveFileWithNewData(existingData);
   }
 
   async deleteBucket({ bucketIndex }) {
-    const bucketContent = JSON.parse(
-      fs.readFileSync("./src/assets/database-response.json", "utf-8")
-    );
+    const existingContent = this.#getParsedFile();
 
-    bucketContent.splice(bucketIndex, 1);
+    existingContent.splice(bucketIndex, 1);
 
-    fs.writeFileSync(
-      "./src/assets/database-response.json",
-      JSON.stringify(bucketContent),
-      (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log("file has been updated");
-      }
-    );
+    this.#saveFileWithNewData(existingData);
   }
 
   getFiles(bucketIndex) {
-    const bucketContent = JSON.parse(
-      fs.readFileSync("./src/assets/database-response.json", "utf-8")
-    );
+    const existingData = this.#getParsedFile();
 
-    return bucketContent[bucketIndex].files;
+    return existingData[bucketIndex].files;
   }
 
   async addFile(fileDetails, bucketIndex) {
