@@ -12,7 +12,7 @@ export class StorageClient {
   createBucket(data) {
     const existingData = this.#getParsedFile();
 
-    const newBucket = new Bucket(data);
+    const newBucket = Bucket.createBucket(data);
 
     existingData.push(newBucket);
 
