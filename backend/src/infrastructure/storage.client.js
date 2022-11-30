@@ -12,7 +12,7 @@ export class StorageClient {
   createBucket(data) {
     const existingData = this.#getParsedFile();
 
-    const newBucket = Bucket.newEntry(data);
+    const newBucket = new Bucket(data);
 
     existingData.push(newBucket);
 
@@ -37,8 +37,8 @@ export class StorageClient {
     const existingData = this.#getParsedFile();
     let currentBucket = existingData[bucketIndex];
 
-    currentBucket = Bucket.subtractSize(currentBucket, fileDetails.size);
     currentBucket.files.push(new File(fileDetails));
+    currentBucket = Bucket.subtractSize(currentBucket, fileDetails.size);
 
     existingData[bucketIndex] = currentBucket;
 
@@ -47,8 +47,13 @@ export class StorageClient {
 
   deleteFile(bucketIndex) {
     const existingData = this.#getParsedFile();
+    let currentBucket = existingData[bucketIndex];
+    const currentFileSize = currentBucket.files[currentBucket.files.length - 1].size;
 
-    existingData[bucketIndex].files.pop();
+    currentBucket.files.pop();
+    currentBucket = Bucket.addSize(currentBucket, currentFileSize);
+
+    existingData[bucketIndex] = currentBucket;
 
     this.#saveFileWithNewData(existingData);
   }
