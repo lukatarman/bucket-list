@@ -1,35 +1,20 @@
 import fs from "fs";
+import { Bucket } from "../models/bucket.js";
 import { fixBytes } from "../utils/file.size.js";
 
 export class StorageClient {
   getBuckets() {
-    return JSON.parse(fs.readFileSync("./src/assets/database-response.json", "utf-8"));
+    return this.#getParsedFile();
   }
 
-  createBucket({ name, location }) {
-    const bucketContent = JSON.parse(
-      fs.readFileSync("./src/assets/database-response.json", "utf-8")
-    );
+  createBucket(data) {
+    const bucketContent = this.#getParsedFile();
 
-    const newEntry = {
-      name,
-      location,
-      size: "4.9 GB",
-      files: [],
-    };
-    bucketContent.push(newEntry);
+    const newBucket = Bucket.newEntry(data);
 
-    fs.writeFileSync(
-      "./src/assets/database-response.json",
-      JSON.stringify(bucketContent),
-      (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log("file has been updated");
-      }
-    );
+    bucketContent.push(newBucket);
+
+    this.#saveFileWithNewData(bucketContent);
   }
 
   async deleteBucket({ bucketIndex }) {
@@ -103,6 +88,24 @@ export class StorageClient {
     fs.writeFileSync(
       "./src/assets/database-response.json",
       JSON.stringify(bucketContent),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log("file has been updated");
+      }
+    );
+  }
+
+  #getParsedFile() {
+    return JSON.parse(fs.readFileSync("./src/assets/database-response.json", "utf-8"));
+  }
+
+  #saveFileWithNewData(data) {
+    fs.writeFileSync(
+      "./src/assets/database-response.json",
+      JSON.stringify(data),
       (err) => {
         if (err) {
           console.error(err);
