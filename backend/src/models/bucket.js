@@ -5,7 +5,7 @@ export class Bucket {
   files;
 
   //prettier-ignore
-  static createBucket(data) {
+  static createEmptyBucket(data) {
     const bucket    = new Bucket;
     bucket.name     = data.name;
     bucket.location = data.location;
@@ -15,22 +15,20 @@ export class Bucket {
   }
 
   //prettier-ignore
-  static subtractSize(bucket, fileSize) {
-    const copy    = new Bucket();
-    copy.name     = bucket.name;
-    copy.location = bucket.location;
-    copy.size     = bucket.size - fileSize;
-    copy.files    = bucket.files;
-    return copy;
+  static createExistingBucket(data) {
+    const bucket    = new Bucket();
+    bucket.name     = data.name;
+    bucket.location = data.location;
+    bucket.size     = data.size;
+    bucket.files    = data.files;
+    return bucket;
   }
 
-  //prettier-ignore
-  static addSize(bucket, fileSize) {
-    const copy    = new Bucket();
-    copy.name     = bucket.name;
-    copy.location = bucket.location;
-    copy.size     = bucket.size + fileSize;
-    copy.files    = bucket.files;
-    return copy;
+  subtractSize(fileSize) {
+    this.size = this.size - fileSize;
+  }
+
+  addSize(fileSize) {
+    this.size = this.size + fileSize;
   }
 }

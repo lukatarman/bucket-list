@@ -10,7 +10,7 @@ export class StorageClient {
   createBucket(data) {
     const existingData = this.#getParsedFile();
 
-    const newBucket = Bucket.createBucket(data);
+    const newBucket = Bucket.createEmptyBucket(data);
 
     existingData.push(newBucket);
 
@@ -33,10 +33,11 @@ export class StorageClient {
 
   async addFile(fileDetails, bucketIndex) {
     const existingData = this.#getParsedFile();
-    let currentBucket = existingData[bucketIndex];
 
+    let currentBucket = Bucket.createExistingBucket(existingData[bucketIndex]);
+
+    currentBucket.subtractSize(fileDetails.size);
     currentBucket.files.push(new File(fileDetails));
-    currentBucket = Bucket.subtractSize(currentBucket, fileDetails.size);
 
     existingData[bucketIndex] = currentBucket;
 
@@ -45,11 +46,12 @@ export class StorageClient {
 
   deleteFile(bucketIndex) {
     const existingData = this.#getParsedFile();
-    let currentBucket = existingData[bucketIndex];
+
+    let currentBucket = Bucket.createExistingBucket(existingData[bucketIndex]);
     const currentFileSize = currentBucket.files[currentBucket.files.length - 1].size;
 
+    currentBucket.addSize(currentFileSize);
     currentBucket.files.pop();
-    currentBucket = Bucket.addSize(currentBucket, currentFileSize);
 
     existingData[bucketIndex] = currentBucket;
 
