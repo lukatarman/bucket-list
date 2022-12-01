@@ -2,8 +2,6 @@ import multer from "fastify-multer";
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-//todo: receive body with text to mark which array entry in JSON file we are going for.
-
 export class QueriesRouter {
   #controller;
 
