@@ -1,4 +1,4 @@
-import { Row, Col, Button, Table, Alert } from "react-bootstrap";
+import { Row, Col, Button, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
@@ -6,6 +6,12 @@ import { uploadFile } from "../../adapters/http.client.adapter.js";
 import { getFiles } from "../../adapters/http.client.adapter.js";
 import { deleteFile } from "../../adapters/http.client.adapter.js";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
+import { atom } from "recoil";
+
+export const todoListState = atom({
+  key: "TodoList",
+  default: "My test",
+});
 
 const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   const [selectedFile, setSelectedFile] = useState("");
