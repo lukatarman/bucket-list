@@ -1,32 +1,15 @@
 import React from "react";
 
-import BucketList from "../BucketList/bucket.list.view.js";
-import MyStorage from "../MyStorage/my.storage.view.js";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
+import AppBehavoir from "./app.behavior.js";
 
 const App = () => {
   const [selectedBucket, setSelectedBucket] = useState("");
   const [visiblePage, setVisiblePage] = useState("bucket-list");
 
-  const handleBrandClick = () => {
-    setVisiblePage("bucket-list");
-  };
-
-  const render = () => {
-    if (visiblePage === "bucket-list")
-      return (
-        <BucketList
-          setSelectedBucket={setSelectedBucket}
-          setVisiblePage={setVisiblePage}
-        />
-      );
-    if (visiblePage === "my-storage")
-      return (
-        <MyStorage selectedBucket={selectedBucket} setVisiblePage={setVisiblePage} />
-      );
-  };
+  const [handleBrandClick, render] = AppBehavoir();
 
   return (
     <div className="app-background">
