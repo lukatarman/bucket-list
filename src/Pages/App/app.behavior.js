@@ -1,3 +1,6 @@
+import BucketList from "../BucketList/bucket.list.view.js";
+import MyStorage from "../MyStorage/my.storage.view.js";
+
 const AppBehavoir = () => {
   const handleBrandClick = () => {
     setVisiblePage("bucket-list");
