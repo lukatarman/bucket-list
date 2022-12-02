@@ -1,11 +1,11 @@
 import React from "react";
+import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from "recoil";
 import ReactDOM from "react-dom/client";
 import App from "./components/App/app.view.js";
-import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <RecoilRoot>
     <App />
-  </BrowserRouter>
+  </RecoilRoot>
 );
