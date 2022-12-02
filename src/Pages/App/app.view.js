@@ -5,9 +5,6 @@ import MyStorage from "../MyStorage/my.storage.view.js";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
-import "../../assets/customStyles.css";
-import { useRecoilValue } from "recoil";
-import { todoListState } from "../../components/FileList/file.list.view.js";
 
 const App = () => {
   const [selectedBucket, setSelectedBucket] = useState("");
