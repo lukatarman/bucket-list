@@ -13,8 +13,6 @@ const App = () => {
     setVisiblePage("bucket-list");
   };
 
-  console.log("Test");
-
   const render = () => {
     if (visiblePage === "bucket-list")
       return (
