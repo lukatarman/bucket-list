@@ -9,15 +9,15 @@ import {
 import { selectedBucketState } from "../../contexts/AppContext/index.js";
 import { visiblePageState } from "../../contexts/AppContext/index.js";
 
-const BucketTable = ({
-  setDisplayCreateBucket,
-  setDisplayCreateButton,
-  displayCreateButton,
-  tableResults,
-  setTableResults,
-  setSelectedBucket,
-  setVisiblePage,
-}) => {
+const BucketTable = () => {
+  const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
+  const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
+    displayCreateBucketState
+  );
+  const setDisplayCreateBucket = useSetRecoilState(displayCreateBucketState);
+  const setSelectedBucket = useSetRecoilState(selectedBucketState);
+  const setVisiblePage = useSetRecoilState(visiblePageState);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await getBuckets();
