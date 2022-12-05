@@ -10,22 +10,8 @@ const BucketList = ({ setSelectedBucket, setVisiblePage }) => {
     <Container fluid className="px-5">
       <h4 className="my-3">Bucket List</h4>
       <div>
-        {displayCreateBucket ? (
-          <CreateBucket
-            setDisplayCreateBucket={setDisplayCreateBucket}
-            setDisplayCreateButton={setDisplayCreateButton}
-            setTableResults={setTableResults}
-          />
-        ) : null}
-        <BucketTable
-          setDisplayCreateBucket={setDisplayCreateBucket}
-          setDisplayCreateButton={setDisplayCreateButton}
-          displayCreateButton={displayCreateButton}
-          tableResults={tableResults}
-          setTableResults={setTableResults}
-          setSelectedBucket={setSelectedBucket}
-          setVisiblePage={setVisiblePage}
-        />
+        {displayCreateBucket ? <CreateBucket /> : null}
+        <BucketTable />
       </div>
     </Container>
   );
