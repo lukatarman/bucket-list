@@ -5,10 +5,6 @@ import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
 import { displayCreateBucketState } from "../../contexts/BucketListContext/index.js";
 
 const BucketList = ({ setSelectedBucket, setVisiblePage }) => {
-  const [displayCreateBucket, setDisplayCreateBucket] = useState(false);
-  const [displayCreateButton, setDisplayCreateButton] = useState(true);
-  const [tableResults, setTableResults] = useState([]);
-
   return (
     <Container fluid className="px-5">
       <h4 className="my-3">Bucket List</h4>
