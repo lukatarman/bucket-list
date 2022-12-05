@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap";
 import { useState } from "react";
 import BucketTable from "../../components/BucketTable/bucket.table.view.js";
 import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
+import { displayCreateBucketState } from "../../contexts/BucketListContext/index.js";
 
 const BucketList = ({ setSelectedBucket, setVisiblePage }) => {
   const [displayCreateBucket, setDisplayCreateBucket] = useState(false);
