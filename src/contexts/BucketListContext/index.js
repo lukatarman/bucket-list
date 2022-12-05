@@ -9,3 +9,8 @@ export const displayCreateButtonState = atom({
   key: "DisplayCreateButton",
   default: true,
 });
+
+export const bucketListTableResultsState = atom({
+  key: "BucketListTableResults",
+  default: [],
+});
