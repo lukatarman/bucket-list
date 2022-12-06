@@ -1,4 +1,4 @@
-const TableItem = ({ item, handleTableItemClick }) => {
+const BucketTableItem = ({ item, handleTableItemClick }) => {
   return (
     <tbody>
       <tr className="table-row-content" onClick={() => handleTableItemClick(item)}>
@@ -9,4 +9,4 @@ const TableItem = ({ item, handleTableItemClick }) => {
   );
 };
 
-export default TableItem;
+export default BucketTableItem;

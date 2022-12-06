@@ -1,13 +1,17 @@
 import { Table } from "react-bootstrap";
 import BucketTableBehavior from "./bucket.table.behavior.js";
-import TableItem from "../BucketTableItem/bucket.table.item.js";
+import BucketTableItem from "../BucketTableItem/bucket.table.item.js";
 
 const BucketTable = () => {
   const [tableResults, handleTableItemClick] = BucketTableBehavior();
 
   const tableRender = tableResults.map((result, index) => {
     return (
-      <TableItem key={index} item={result} handleTableItemClick={handleTableItemClick} />
+      <BucketTableItem
+        key={index}
+        item={result}
+        handleTableItemClick={handleTableItemClick}
+      />
     );
   });
 
