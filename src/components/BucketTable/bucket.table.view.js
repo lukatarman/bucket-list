@@ -10,6 +10,7 @@ const BucketTable = () => {
       <BucketTableItem
         key={index}
         item={result}
+        index={index}
         handleTableItemClick={handleTableItemClick}
       />
     );
