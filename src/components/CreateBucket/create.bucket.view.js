@@ -3,7 +3,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import CreateBucketBehavior from "./create.bucket.behavior.js";
 
-const CreateBucket = ({}) => {
+const CreateBucket = () => {
   const [handleSubmit, handleNameChange, handleLocationChange, nameInputValue] =
     CreateBucketBehavior();
 
