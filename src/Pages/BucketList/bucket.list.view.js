@@ -34,17 +34,19 @@ const BucketList = () => {
       <h4 className="my-3">Bucket List</h4>
       <div>
         {displayCreateBucket ? <CreateBucket /> : null}
-        <div className="p-3 bg-white">
-          <Row>
-            <Col className="d-flex align-items-center">
-              <div>All Buckets ({tableResults.length})</div>
-            </Col>
-            <Col className="d-flex justify-content-end">
-              {displayCreateButton ? showButton() : null}
-            </Col>
-          </Row>
+        <div className="p-4 bg-white">
+          <div>
+            <Row className="mb-3">
+              <Col className="d-flex align-items-center">
+                <div>All Buckets ({tableResults.length})</div>
+              </Col>
+              <Col className="d-flex justify-content-end">
+                {displayCreateButton ? showButton() : null}
+              </Col>
+            </Row>
+          </div>
+          <BucketTable />
         </div>
-        <BucketTable />
       </div>
     </Container>
   );

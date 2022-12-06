@@ -48,19 +48,17 @@ const BucketTable = () => {
   });
 
   return (
-    <div className="p-3 bg-white">
-      <Table borderless hover>
-        <thead>
-          <tr className="table-row-bordered">
-            <th width="70%" className="table-head-content">
-              Name
-            </th>
-            <th className="table-head-content">Location</th>
-          </tr>
-        </thead>
-        {tableRender}
-      </Table>
-    </div>
+    <Table borderless hover>
+      <thead>
+        <tr className="table-row-bordered">
+          <th width="70%" className="table-head-content">
+            Name
+          </th>
+          <th className="table-head-content">Location</th>
+        </tr>
+      </thead>
+      {tableRender}
+    </Table>
   );
 };
 
