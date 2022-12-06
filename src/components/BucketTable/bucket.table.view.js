@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import BucketTableBehavior from "./bucket.table.behavior.js";
-import TableItem from "../TableItem/table.item.js";
+import TableItem from "../BucketTableItem/bucket.table.item.js";
 
 const BucketTable = () => {
   const [tableResults, handleTableItemClick] = BucketTableBehavior();
