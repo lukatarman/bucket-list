@@ -1,26 +1,16 @@
-import { Col, Row, Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { useEffect } from "react";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import {
-  bucketListTableResultsState,
-  displayCreateBucketState,
-  displayCreateButtonState,
-} from "../../contexts/BucketListContext/index.js";
+import { bucketListTableResultsState } from "../../contexts/BucketListContext/index.js";
 import {
   selectedBucketState,
   visiblePageState,
 } from "../../contexts/AppContext/index.js";
 
-//todo
-// clean up this file
-
 const BucketTable = () => {
   const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
-  const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
-    displayCreateButtonState
-  );
-  const setDisplayCreateBucket = useSetRecoilState(displayCreateBucketState);
+
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
 
@@ -33,17 +23,14 @@ const BucketTable = () => {
     fetchData();
   }, [setTableResults]);
 
-  const onButtonClick = () => {
-    setDisplayCreateButton(false);
-    setDisplayCreateBucket(true);
-  };
-
-  const showButton = () => {
-    return (
-      <Button className="py-0" variant="custom" type="button" onClick={onButtonClick}>
-        Create New Bucket
-      </Button>
-    );
+  const handleTableItemClick = (result, index) => {
+    setSelectedBucket({
+      name: result.name,
+      location: result.location,
+      size: result.size,
+      index,
+    });
+    setVisiblePage("my-storage");
   };
 
   const tableRender = tableResults.map((result, index) => {
@@ -51,15 +38,7 @@ const BucketTable = () => {
       <tbody key={index}>
         <tr
           className="table-row-content"
-          onClick={() => {
-            setSelectedBucket({
-              name: result.name,
-              location: result.location,
-              size: result.size,
-              index,
-            });
-            setVisiblePage("my-storage");
-          }}
+          onClick={() => handleTableItemClick(result, index)}
         >
           <td>{result.name}</td>
           <td>{result.location}</td>
@@ -70,14 +49,6 @@ const BucketTable = () => {
 
   return (
     <div className="p-3 bg-white">
-      <Row className="mb-3">
-        <Col className="d-flex align-items-center">
-          <div>All Buckets ({tableResults.length})</div>
-        </Col>
-        <Col className="d-flex justify-content-end">
-          {displayCreateButton ? showButton() : null}
-        </Col>
-      </Row>
       <Table borderless hover>
         <thead>
           <tr className="table-row-bordered">
