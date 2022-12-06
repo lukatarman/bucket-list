@@ -9,8 +9,8 @@ const CreateBucket = () => {
 
   return (
     <div>
-      <div className="px-3">Create new bucket</div>
-      <form className="bg-white p-3 mb-3" onSubmit={handleSubmit}>
+      <div className="px-3 mb-1">Create new bucket</div>
+      <form className="bg-white p-4 mb-3" onSubmit={handleSubmit}>
         <Row className="mb-4">
           <Col>
             <Form.Label>Bucket Name*</Form.Label>
