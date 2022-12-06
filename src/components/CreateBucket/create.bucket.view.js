@@ -1,36 +1,8 @@
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { getBuckets } from "../../adapters/http.client.adapter.js";
-import { createBucket } from "../../adapters/http.client.adapter.js";
-import { useState } from "react";
 
-const CreateBucket = ({
-  setDisplayCreateBucket,
-  setDisplayCreateButton,
-  setTableResults,
-}) => {
-  const [nameInputValue, setNameInputValue] = useState("");
-  const [locationValue, setLocationValue] = useState("Kranj");
-
-  const handleSubmit = async () => {
-    setDisplayCreateBucket(false);
-    setDisplayCreateButton(true);
-
-    await createBucket({ name: nameInputValue, location: locationValue });
-
-    const response = await getBuckets();
-    setTableResults(response.data);
-  };
-
-  const handleNameChange = (e) => {
-    setNameInputValue(e.target.value);
-  };
-
-  const handleLocationChange = (e) => {
-    setLocationValue(e.value);
-  };
-
+const CreateBucket = ({}) => {
   return (
     <div>
       <div className="px-3">Create new bucket</div>
