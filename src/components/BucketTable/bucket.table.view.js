@@ -5,14 +5,20 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   bucketListTableResultsState,
   displayCreateBucketState,
+  displayCreateButtonState,
 } from "../../contexts/BucketListContext/index.js";
-import { selectedBucketState } from "../../contexts/AppContext/index.js";
-import { visiblePageState } from "../../contexts/AppContext/index.js";
+import {
+  selectedBucketState,
+  visiblePageState,
+} from "../../contexts/AppContext/index.js";
+
+//todo
+// clean up this file
 
 const BucketTable = () => {
   const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
   const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
-    displayCreateBucketState
+    displayCreateButtonState
   );
   const setDisplayCreateBucket = useSetRecoilState(displayCreateBucketState);
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
