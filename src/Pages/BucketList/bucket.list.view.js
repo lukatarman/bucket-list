@@ -1,32 +1,27 @@
 import { Container } from "react-bootstrap";
-import { Col, Row, Button } from "react-bootstrap";
-import BucketTable from "../../components/BucketTable/bucket.table.view.js";
-import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { Col, Row } from "react-bootstrap";
+import { useRecoilValue, useRecoilState } from "recoil";
 import {
   bucketListTableResultsState,
   displayCreateBucketState,
   displayCreateButtonState,
 } from "../../contexts/BucketListContext/index.js";
+import BucketTable from "../../components/BucketTable/bucket.table.view.js";
+import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
+import CustomButton from "../../components/CustomButton/custom.button.js";
 
 const BucketList = () => {
-  const displayCreateBucket = useRecoilValue(displayCreateBucketState);
-  const displayCreateButton = useRecoilValue(displayCreateButtonState);
+  const [displayCreateBucket, setDisplayCreateBucket] = useRecoilState(
+    displayCreateBucketState
+  );
+  const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
+    displayCreateButtonState
+  );
   const tableResults = useRecoilValue(bucketListTableResultsState);
-  const setDisplayCreateButton = useSetRecoilState(displayCreateButtonState);
-  const setDisplayCreateBucket = useSetRecoilState(displayCreateBucketState);
 
-  const handleButtonClick = () => {
+  const handleClick = () => {
     setDisplayCreateButton(false);
     setDisplayCreateBucket(true);
-  };
-
-  const showButton = () => {
-    return (
-      <Button className="py-0" variant="custom" type="button" onClick={handleButtonClick}>
-        Create New Bucket
-      </Button>
-    );
   };
 
   return (
@@ -41,7 +36,7 @@ const BucketList = () => {
                 <div>All Buckets ({tableResults.length})</div>
               </Col>
               <Col className="d-flex justify-content-end">
-                {displayCreateButton ? showButton() : null}
+                {displayCreateButton ? <CustomButton handleClick={handleClick} /> : null}
               </Col>
             </Row>
           </div>
