@@ -20,7 +20,7 @@ const MyStorage = () => {
   const setVisiblePage = useSetRecoilState(visiblePageState);
   const [visibleTab, setVisibleTab] = useRecoilState(visibleTabState);
   const [visibleDelete, setVisibleDelete] = useRecoilState(visibleDeleteState);
-  const [setShowDetailsAlert] = useSetRecoilState(showDetailsAlertState);
+  const setShowDetailsAlert = useSetRecoilState(showDetailsAlertState);
 
   useEffect(() => {
     visibleTab === "file-details" ? setVisibleDelete(true) : setVisibleDelete(false);
