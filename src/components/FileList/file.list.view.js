@@ -4,7 +4,9 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.adapter.js";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
-import { atom } from "recoil";
+import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
+import { selectedBucketState } from "../../contexts/AppContext/index.js";
+import { filesTableState } from "../../contexts/MyStorageContext/index.js";
 
 const FileList = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
@@ -42,20 +44,8 @@ const FileList = () => {
     setFilesTable(response.data);
   };
 
-  const handleFileClick = (selectedFileObject) => {
-    setSelectedFile(selectedFileObject);
-  };
-
   const tableRender = filesTable.map((file, index) => (
-    <tr
-      key={index}
-      onClick={() => {
-        handleFileClick({
-          name: file.name,
-          index,
-        });
-      }}
-    >
+    <tr key={index}>
       <td className="d-flex align-items-center">
         <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
         <div className="d-flex align-items-center p-2">{file.name}</div>
