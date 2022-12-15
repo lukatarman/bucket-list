@@ -6,8 +6,9 @@ import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.ada
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 import { atom } from "recoil";
 
-const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
-  const [selectedFile, setSelectedFile] = useState("");
+const FileList = () => {
+  const selectedBucket = useRecoilValue(selectedBucketState);
+  const [filesTable, setFilesTable] = useRecoilState(filesTableState);
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
