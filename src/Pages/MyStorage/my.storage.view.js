@@ -1,9 +1,6 @@
 import { Container, Tab, Tabs } from "react-bootstrap";
 import { useEffect } from "react";
 import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
-import FileList from "../../components/FileList/file.list.view.js";
-import FileDetails from "../../components/FileDetails/file.details.view.js";
-import AlertPopup from "../../components/AlertPopup/AlertPopup.js";
 import { deleteBucket } from "../../adapters/http.client.adapter.js";
 import {
   selectedBucketState,
@@ -14,6 +11,10 @@ import {
   visibleDeleteState,
   showDetailsAlertState,
 } from "../../contexts/MyStorageContext/index.js";
+import FileList from "../../components/FileList/file.list.view.js";
+import FileDetails from "../../components/FileDetails/file.details.view.js";
+import AlertPopup from "../../components/AlertPopup/AlertPopup.js";
+import MyStorageBehavior from "./my.storage.behavior.js";
 
 const MyStorage = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
