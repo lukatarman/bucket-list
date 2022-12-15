@@ -11,7 +11,7 @@ export const visibleDeleteState = atom({
 });
 
 export const filesTableState = atom({
-  key: "VisiblePage",
+  key: "FilesTable",
   default: [],
 });
 
