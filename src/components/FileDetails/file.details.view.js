@@ -1,4 +1,9 @@
-const FileDetails = ({ selectedBucket }) => {
+import { useRecoilValue } from "recoil";
+import { selectedBucketState } from "../../contexts/AppContext/index.js";
+
+const FileDetails = () => {
+  const selectedBucket = useRecoilValue(selectedBucketState);
+
   return (
     <div className="px-5 bg-white py-3 d-flex flex-row">
       <div className="p-3">
