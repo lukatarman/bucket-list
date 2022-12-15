@@ -6,11 +6,6 @@ import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.ada
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 import { atom } from "recoil";
 
-export const todoListState = atom({
-  key: "TodoList",
-  default: "My test",
-});
-
 const FileList = ({ selectedBucket, filesTable, setFilesTable }) => {
   const [selectedFile, setSelectedFile] = useState("");
   const [showAlert, setShowAlert] = useState(false);
