@@ -17,7 +17,7 @@ import {
 
 const MyStorage = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
-  const setVisiblePage = useRecoilValue(visiblePageState);
+  const setVisiblePage = useSetRecoilState(visiblePageState);
   const [visibleTab, setVisibleTab] = useRecoilState(visibleTabState);
   const [visibleDelete, setVisibleDelete] = useRecoilState(visibleDeleteState);
   const [setShowDetailsAlert] = useSetRecoilState(showDetailsAlertState);
