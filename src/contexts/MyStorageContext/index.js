@@ -15,7 +15,7 @@ export const filesTableState = atom({
   default: [],
 });
 
-export const showDetailsAreltState = atom({
+export const showDetailsAlertState = atom({
   key: "ShowDetailsAlert",
   default: false,
 });
