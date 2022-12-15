@@ -4,7 +4,7 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.adapter.js";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
-import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { selectedBucketState } from "../../contexts/AppContext/index.js";
 import { filesTableState } from "../../contexts/MyStorageContext/index.js";
 
