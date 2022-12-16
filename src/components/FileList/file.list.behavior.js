@@ -4,7 +4,7 @@ import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.ada
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
 
-const FileListBehavior = () => {
+const FileListBehavior = (uploadButtonRef) => {
   const selectedBucket = useRecoilValue(selectedBucketState);
   const setFilesTable = useSetRecoilState(filesTableState);
   const [showAlert, setShowAlert] = useState(false);
