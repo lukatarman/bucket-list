@@ -48,18 +48,22 @@ const FileList = () => {
             <div>All Files ({filesTable.length})</div>
           </Col>
           <Col className="d-flex justify-content-end">
-            <Button
-              className="py-0 mx-2"
-              variant="custom"
-              type="button"
-              onClick={handleDeleteButtonClick}
-            >
-              Delete Object
-            </Button>
-            <label htmlFor="upload-btn" className="btn-custom px-2 mx-2">
-              Upload Object
-            </label>
-            <input id="upload-btn" type="file" onChange={handleFileUpload} hidden />
+            <CustomButton
+              customClasses="mx-2"
+              handleClick={handleDeleteButtonClick}
+              buttonValue="Delete Object"
+            />
+            <CustomButton
+              handleClick={handleUploadButtonClick}
+              buttonValue="Upload Object"
+            />
+            <input
+              id="upload-btn"
+              ref={uploadButtonRef}
+              type="file"
+              onChange={handleFileUpload}
+              hidden
+            />
           </Col>
         </Row>
 
