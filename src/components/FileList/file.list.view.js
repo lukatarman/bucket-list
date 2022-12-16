@@ -6,7 +6,7 @@ import AlertPopup from "../AlertPopup/AlertPopup.js";
 import { filesTableState } from "../../contexts/MyStorageContext";
 import FileListBehavior from "./file.list.behavior.js";
 
-//todo refactor JSX
+//todo create table component, extract JSX there.
 
 const FileList = () => {
   const filesTable = useRecoilValue(filesTableState);
