@@ -1,23 +1,27 @@
-import { Row, Col, Button, Table } from "react-bootstrap";
+import { Row, Col, Table } from "react-bootstrap";
+import { useRef } from "react";
 import { useRecoilValue } from "recoil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 import { filesTableState } from "../../contexts/MyStorageContext";
+import CustomButton from "../CustomButton/custom.button.js";
 import FileListBehavior from "./file.list.behavior.js";
 
 //todo create table component, extract JSX there.
 
 const FileList = () => {
   const filesTable = useRecoilValue(filesTableState);
+  const uploadButtonRef = useRef();
 
   const [
     showAlert,
     setShowAlert,
     handleDelete,
     handleDeleteButtonClick,
+    handleUploadButtonClick,
     handleFileUpload,
-  ] = FileListBehavior();
+  ] = FileListBehavior(uploadButtonRef);
 
   const tableRender = filesTable.map((file, index) => (
     <tr key={index}>
