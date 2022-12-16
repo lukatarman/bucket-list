@@ -1,44 +1,29 @@
 import { Container, Tab, Tabs } from "react-bootstrap";
-import { useEffect } from "react";
-import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
-import { deleteBucket } from "../../adapters/http.client.adapter.js";
+import { useRecoilValue, useRecoilState } from "recoil";
 import {
-  selectedBucketState,
-  visiblePageState,
-} from "../../contexts/AppContext/index.js";
-import {
-  visibleTabState,
   visibleDeleteState,
   showDetailsAlertState,
-} from "../../contexts/MyStorageContext/index.js";
+} from "../../contexts/MyStorageContext";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
 import AlertPopup from "../../components/AlertPopup/AlertPopup.js";
+import CustomButton from "../../components/CustomButton/custom.button.js";
 import MyStorageBehavior from "./my.storage.behavior.js";
 
 const MyStorage = () => {
-  const selectedBucket = useRecoilValue(selectedBucketState);
-  const setVisiblePage = useSetRecoilState(visiblePageState);
-  const [visibleTab, setVisibleTab] = useRecoilState(visibleTabState);
-  const [visibleDelete, setVisibleDelete] = useRecoilState(visibleDeleteState);
-  const setShowDetailsAlert = useSetRecoilState(showDetailsAlertState);
+  const [showDetailsAlert, setShowDetailsAlert] = useRecoilState(showDetailsAlertState);
+  const visibleDelete = useRecoilValue(visibleDeleteState);
 
-  useEffect(() => {
-    visibleTab === "file-details" ? setVisibleDelete(true) : setVisibleDelete(false);
-  }, [visibleTab]);
-
-  const handleDeleteClick = () => {
-    deleteBucket(selectedBucket.index);
-    setVisiblePage("bucket-list");
-  };
-
-  const handleTabSelect = (tab) => {
-    setVisibleTab(tab);
-  };
+  const [handleDeleteClick, selectedBucket, visibleTab, handleTabSelect] =
+    MyStorageBehavior();
 
   return (
     <Container fluid className="px-5">
-      <AlertPopup handleDelete={handleDeleteClick} />
+      <AlertPopup
+        showAlert={showDetailsAlert}
+        setShowAlert={setShowDetailsAlert}
+        handleDelete={handleDeleteClick}
+      />
       <h4 className="my-3">{selectedBucket.name}</h4>
       <div className="element-position-custom">
         <Tabs
@@ -53,18 +38,13 @@ const MyStorage = () => {
             <FileDetails />
           </Tab>
         </Tabs>
-        <div className="button-position-custom p-1">
-          <div>
-            {visibleDelete ? (
-              <button
-                className="delete-buttom-custom px-2"
-                onClick={() => setShowDetailsAlert(true)}
-              >
-                Delete Bucket
-              </button>
-            ) : null}
-          </div>
-        </div>
+        {visibleDelete && (
+          <CustomButton
+            customClasses="delete-buttom-custom"
+            handleClick={() => setShowDetailsAlert(true)}
+            buttonValue="Delete Bucket"
+          />
+        )}
       </div>
     </Container>
   );
