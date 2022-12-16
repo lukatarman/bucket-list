@@ -1,48 +1,21 @@
 import { Row, Col, Button, Table } from "react-bootstrap";
+import { useRecoilValue } from "recoil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
-import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.adapter.js";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
-import { useRecoilValue, useRecoilState } from "recoil";
-import { selectedBucketState } from "../../contexts/AppContext/index.js";
-import { filesTableState } from "../../contexts/MyStorageContext/index.js";
+import { filesTableState } from "../../contexts/MyStorageContext";
+import FileListBehavior from "./file.list.behavior.js";
 
 const FileList = () => {
-  const selectedBucket = useRecoilValue(selectedBucketState);
-  const [filesTable, setFilesTable] = useRecoilState(filesTableState);
-  const [showAlert, setShowAlert] = useState(false);
+  const filesTable = useRecoilValue(filesTableState);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await getFiles(selectedBucket.index);
-      setFilesTable(response.data);
-    };
-
-    fetchData();
-  }, [setFilesTable]);
-
-  const handleFileUpload = async (e) => {
-    const formData = new FormData();
-    formData.append("file", e.target.files[0]);
-    await uploadFile(formData, selectedBucket.index);
-
-    const response = await getFiles(selectedBucket.index);
-
-    setFilesTable(response.data);
-  };
-
-  const handleDeleteButtonClick = async () => {
-    setShowAlert(true);
-  };
-
-  const handleDelete = async () => {
-    await deleteFile(selectedBucket.index);
-
-    const response = await getFiles(selectedBucket.index);
-
-    setFilesTable(response.data);
-  };
+  const [
+    showAlert,
+    setShowAlert,
+    handleDelete,
+    handleDeleteButtonClick,
+    handleFileUpload,
+  ] = FileListBehavior();
 
   const tableRender = filesTable.map((file, index) => (
     <tr key={index}>
