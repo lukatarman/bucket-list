@@ -64,25 +64,14 @@
   outline: 1px solid black;
 }
 
-.button-position-custom {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-
 .element-position-custom {
   position: relative;
 }
 
 .delete-buttom-custom {
-  border: 2px solid black;
-  background-color: white;
-}
-
-.delete-buttom-custom:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 .tabs-outline-custom,
