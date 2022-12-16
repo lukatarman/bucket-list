@@ -1,9 +1,14 @@
 import { Button } from "react-bootstrap";
 
-const CustomButton = ({ handleClick }) => {
+const CustomButton = ({ customClasses, handleClick, buttonValue }) => {
   return (
-    <Button className="py-0" variant="custom" type="button" onClick={handleClick}>
-      Create New Bucket
+    <Button
+      className={`${customClasses} py-0`}
+      variant="custom"
+      type="button"
+      onClick={handleClick}
+    >
+      {buttonValue}
     </Button>
   );
 };
