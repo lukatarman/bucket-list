@@ -36,7 +36,13 @@ const BucketList = () => {
                 <div>All Buckets ({tableResults.length})</div>
               </Col>
               <Col className="d-flex justify-content-end">
-                {displayCreateButton ? <CustomButton handleClick={handleClick} /> : null}
+                {displayCreateButton ? (
+                  <CustomButton
+                    customClasses="py-0"
+                    handleClick={handleClick}
+                    buttonValue="Create New Bucket"
+                  />
+                ) : null}
               </Col>
             </Row>
           </div>
