@@ -32,6 +32,10 @@ const FileListBehavior = () => {
     setShowAlert(true);
   };
 
+  const handleUploadButtonClick = () => {
+    uploadButtonRef.current.click();
+  };
+
   const handleDelete = async () => {
     await deleteFile(selectedBucket.index);
 
@@ -44,6 +48,7 @@ const FileListBehavior = () => {
     setShowAlert,
     handleDelete,
     handleDeleteButtonClick,
+    handleUploadButtonClick,
     handleFileUpload,
   ];
 };
