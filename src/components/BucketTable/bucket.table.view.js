@@ -3,12 +3,13 @@ import BucketTableBehavior from "./bucket.table.behavior.js";
 import CustomTable from "../CustomTable/custom.table.view.js";
 
 const BucketTable = () => {
-  const [tableResults, handleTableItemClick] = BucketTableBehavior();
+  const [handleTableItemClick, tableValues] = BucketTableBehavior();
 
   return (
     <CustomTable
-      tableResults={tableResults}
       handleTableItemClick={handleTableItemClick}
+      tableValues={tableValues}
+      firstRowWidth="70%"
     />
   );
 };
