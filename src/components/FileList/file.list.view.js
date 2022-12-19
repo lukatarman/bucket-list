@@ -77,12 +77,8 @@ const FileList = () => {
               <th width="55%" className="table-head-content">
                 Name
               </th>
-              <th width="25%" className="table-head-content">
-                Last Modified
-              </th>
-              <th width="25%" className="table-head-content">
-                Size
-              </th>
+              <th className="table-head-content">Last Modified</th>
+              <th className="table-head-content">Size</th>
             </tr>
           </thead>
           <tbody className="bordered-table-custom mb-5">{tableRender}</tbody>
