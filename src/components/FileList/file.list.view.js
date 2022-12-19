@@ -8,7 +8,7 @@ import { filesTableState } from "../../contexts/MyStorageContext";
 import CustomButton from "../CustomButton/custom.button.js";
 import FileListBehavior from "./file.list.behavior.js";
 
-//todo create table component, extract JSX there.
+//todo use reusable table component instead
 
 const FileList = () => {
   const filesTable = useRecoilValue(filesTableState);
