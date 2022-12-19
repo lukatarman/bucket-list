@@ -1,18 +1,19 @@
 import { Table } from "react-bootstrap";
-import CustomTableItem from "../BucketTableItem/bucket.table.item.js";
+import CustomTableItem from "../CustomTableItem/custom.table.item.js";
 
 const CustomTable = ({ handleTableItemClick, tableValues, firstRowWidth }) => {
-  const tableItemRender = tableValues.row.map((result, index) => {
+  const tableRowsRender = tableValues.rows.map((result, index) => {
     return (
       <CustomTableItem
         key={index}
         items={result}
+        index={index}
         handleTableItemClick={handleTableItemClick}
       />
     );
   });
 
-  const tableRender = tableValues.head.map((value, index) => {
+  const tableHeadRender = tableValues.head.map((value, index) => {
     return (
       <th
         key={index}
@@ -27,9 +28,9 @@ const CustomTable = ({ handleTableItemClick, tableValues, firstRowWidth }) => {
   return (
     <Table borderless hover>
       <thead>
-        <tr className="table-row-bordered">{tableRender}</tr>
+        <tr className="table-row-bordered">{tableHeadRender}</tr>
       </thead>
-      {tableItemRender}
+      {tableRowsRender}
     </Table>
   );
 };
