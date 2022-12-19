@@ -5,10 +5,7 @@ const CustomTableItem = ({ items, index, handleTableItemClick }) => {
 
   return (
     <tbody>
-      <tr
-        className="table-row-content"
-        onClick={() => handleTableItemClick(items, index)}
-      >
+      <tr className="table-row-content" onClick={() => handleTableItemClick(index)}>
         {renderItems}
       </tr>
     </tbody>
