@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { bucketListTableResultsState } from "../../contexts/BucketListContext/index.js";
@@ -8,19 +8,26 @@ import {
 } from "../../contexts/AppContext/index.js";
 
 const BucketTableBehavior = () => {
-  const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
-
+  const [fetchResults, setFetchResults] = useRecoilState(bucketListTableResultsState);
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
+
+  const [tableValues, setTableValues] = useState({ head: ["Name", "Location"] });
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await getBuckets();
-      setTableResults(response.data);
+      setFetchResults(response.data);
     };
 
     fetchData();
-  }, [setTableResults]);
+  }, [setFetchResults]);
+
+  useEffect(() => {
+    const tableResults = fetchResults.map((result) => [result.name, result.location]);
+
+    setTableValues({ head: tableValues.head, row: tableResults });
+  }, [fetchResults]);
 
   const handleTableItemClick = (result, index) => {
     setSelectedBucket({
@@ -32,7 +39,7 @@ const BucketTableBehavior = () => {
     setVisiblePage("my-storage");
   };
 
-  return [tableResults, handleTableItemClick];
+  return [handleTableItemClick, tableValues];
 };
 
 export default BucketTableBehavior;
