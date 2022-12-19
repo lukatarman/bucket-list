@@ -1,28 +1,35 @@
 import { Table } from "react-bootstrap";
-import BucketTableItem from "../BucketTableItem/bucket.table.item.js";
+import CustomTableItem from "../BucketTableItem/bucket.table.item.js";
 
-const CustomTable = ({ tableResults, handleTableItemClick }) => {
-  const tableRender = tableResults.map((result, index) => {
+const CustomTable = ({ handleTableItemClick, tableValues, firstRowWidth }) => {
+  const tableItemRender = tableValues.row.map((result, index) => {
     return (
-      <BucketTableItem
+      <CustomTableItem
         key={index}
-        item={result}
-        index={index}
+        items={result}
         handleTableItemClick={handleTableItemClick}
       />
     );
   });
+
+  const tableRender = tableValues.head.map((value, index) => {
+    return (
+      <th
+        key={index}
+        width={index === 0 ? firstRowWidth : ""}
+        className="table-head-content"
+      >
+        {value}
+      </th>
+    );
+  });
+
   return (
     <Table borderless hover>
       <thead>
-        <tr className="table-row-bordered">
-          <th width="70%" className="table-head-content">
-            Name
-          </th>
-          <th className="table-head-content">Location</th>
-        </tr>
+        <tr className="table-row-bordered">{tableRender}</tr>
       </thead>
-      {tableRender}
+      {tableItemRender}
     </Table>
   );
 };
