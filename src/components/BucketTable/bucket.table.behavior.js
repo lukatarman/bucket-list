@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { bucketListTableResultsState } from "../../contexts/BucketListContext/index.js";
-import {
-  selectedBucketState,
-  visiblePageState,
-} from "../../contexts/AppContext/index.js";
+import { bucketListTableResultsState } from "../../contexts/BucketListContext";
+import { selectedBucketState, visiblePageState } from "../../contexts/AppContext";
 
 const BucketTableBehavior = () => {
   const [fetchResults, setFetchResults] = useRecoilState(bucketListTableResultsState);
