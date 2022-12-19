@@ -1,12 +1,18 @@
-const BucketTableItem = ({ item, index, handleTableItemClick }) => {
+const CustomTableItem = ({ items, index, handleTableItemClick }) => {
+  const renderItems = items.map((item, i) => {
+    return <td key={i}>{item}</td>;
+  });
+
   return (
     <tbody>
-      <tr className="table-row-content" onClick={() => handleTableItemClick(item, index)}>
-        <td>{item.name}</td>
-        <td>{item.location}</td>
+      <tr
+        className="table-row-content"
+        onClick={() => handleTableItemClick(items, index)}
+      >
+        {renderItems}
       </tr>
     </tbody>
   );
 };
 
-export default BucketTableItem;
+export default CustomTableItem;
