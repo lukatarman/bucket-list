@@ -9,7 +9,10 @@ const BucketTableBehavior = () => {
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
 
-  const [tableValues, setTableValues] = useState({ head: ["Name", "Location"], row: [] });
+  const [tableValues, setTableValues] = useState({
+    head: ["Name", "Location"],
+    rows: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,14 +26,14 @@ const BucketTableBehavior = () => {
   useEffect(() => {
     const tableResults = fetchResults.map((result) => [result.name, result.location]);
 
-    setTableValues({ head: tableValues.head, row: tableResults });
+    setTableValues({ head: tableValues.head, rows: tableResults });
   }, [fetchResults]);
 
-  const handleTableItemClick = (result, index) => {
+  const handleTableItemClick = (index) => {
     setSelectedBucket({
-      name: result.name,
-      location: result.location,
-      size: result.size,
+      name: fetchResults[index].name,
+      location: fetchResults[index].location,
+      size: fetchResults[index].size,
       index,
     });
     setVisiblePage("my-storage");
