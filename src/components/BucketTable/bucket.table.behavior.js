@@ -12,7 +12,7 @@ const BucketTableBehavior = () => {
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
 
-  const [tableValues, setTableValues] = useState({ head: ["Name", "Location"] });
+  const [tableValues, setTableValues] = useState({ head: ["Name", "Location"], row: [] });
 
   useEffect(() => {
     const fetchData = async () => {
