@@ -6,10 +6,7 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 import { filesTableState } from "../../contexts/MyStorageContext";
 import CustomButton from "../CustomButton/custom.button.js";
-import CustomTable from "../CustomTable/custom.table.view.js";
 import FileListBehavior from "./file.list.behavior.js";
-
-//todo use reusable table component instead
 
 const FileList = () => {
   const filesTable = useRecoilValue(filesTableState);
@@ -22,6 +19,7 @@ const FileList = () => {
     handleDeleteButtonClick,
     handleUploadButtonClick,
     handleFileUpload,
+    fixFilesTable,
   ] = FileListBehavior(uploadButtonRef);
 
   const tableRender = filesTable.map((file, index) => (
@@ -39,6 +37,13 @@ const FileList = () => {
       </td>
     </tr>
   ));
+
+  const tableValues = {
+    head: ["Name", "Last Modified", "Size"],
+    rows: fixFilesTable(),
+  };
+
+  console.log(tableValues);
 
   return (
     <div>
