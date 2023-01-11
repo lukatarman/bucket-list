@@ -6,6 +6,8 @@ import MyStorage from "../MyStorage/my.storage.view.js";
 import { useRecoilState } from "recoil";
 import { visiblePageState } from "../../contexts/AppContext/index.js";
 
+//todo add using custom table to file.list.view.js
+
 const App = () => {
   const [visiblePage, setVisiblePage] = useRecoilState(visiblePageState);
 
