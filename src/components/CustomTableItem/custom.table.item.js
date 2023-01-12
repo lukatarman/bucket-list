@@ -1,15 +1,21 @@
-const CustomTableItem = ({ items, index, handleTableItemClick }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileLines } from "@fortawesome/free-solid-svg-icons";
+
+const CustomTableItem = ({ items, index, handleTableItemClick, variation }) => {
   const renderItems = items.map((item, i) => {
-    return <td key={i}>{item}</td>;
+    return (
+      <td key={i} className={variation && i === 0 ? "d-flex align-items-center" : ""}>
+        {variation && i === 0 ? (
+          <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
+        ) : null}
+        <div className={variation && i === 0 ? "d-flex align-items-center p-2" : "p-2"}>
+          {item}
+        </div>
+      </td>
+    );
   });
 
-  return (
-    <tbody>
-      <tr className="table-row-content" onClick={() => handleTableItemClick(index)}>
-        {renderItems}
-      </tr>
-    </tbody>
-  );
+  return <tr onClick={() => handleTableItemClick(index)}>{renderItems}</tr>;
 };
 
 export default CustomTableItem;
