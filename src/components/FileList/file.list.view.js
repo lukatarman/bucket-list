@@ -21,6 +21,7 @@ const FileList = () => {
     handleUploadButtonClick,
     handleFileUpload,
     fixFilesTable,
+    filesTable,
   ] = FileListBehavior(uploadButtonRef);
 
   const tableValues = {
