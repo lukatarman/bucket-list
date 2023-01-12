@@ -76,6 +76,13 @@ const FileList = () => {
           </Col>
         </Row>
 
+        <CustomTable
+          handleTableItemClick={() => {}}
+          tableValues={tableValues}
+          firstRowWidth="55%"
+          variation={true}
+        />
+
         <Table hover>
           <thead>
             <tr className="table-row-bordered">
