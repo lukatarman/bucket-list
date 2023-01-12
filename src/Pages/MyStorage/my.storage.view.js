@@ -11,8 +11,8 @@ import CustomButton from "../../components/CustomButton/custom.button.js";
 import MyStorageBehavior from "./my.storage.behavior.js";
 
 const MyStorage = () => {
-  const [showDetailsAlert, setShowDetailsAlert] = useRecoilState(showDetailsAlertState);
   const visibleDelete = useRecoilValue(visibleDeleteState);
+  const [showDetailsAlert, setShowDetailsAlert] = useRecoilState(showDetailsAlertState);
 
   const [handleDeleteClick, selectedBucket, visibleTab, handleTabSelect] =
     MyStorageBehavior();
