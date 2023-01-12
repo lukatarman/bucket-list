@@ -36,7 +36,9 @@ const CustomTable = ({
       <thead>
         <tr className="table-row-bordered">{tableHeadRender}</tr>
       </thead>
-      <tbody className="bordered-table-custom mb-5">{tableRowsRender}</tbody>
+      <tbody className="bordered-table-custom mb-5" role={variation ? "" : "button"}>
+        {tableRowsRender}
+      </tbody>
     </Table>
   );
 };
