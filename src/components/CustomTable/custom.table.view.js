@@ -14,6 +14,7 @@ const CustomTable = ({
         items={result}
         index={index}
         handleTableItemClick={handleTableItemClick}
+        variation={variation}
       />
     );
   });
@@ -31,11 +32,11 @@ const CustomTable = ({
   });
 
   return (
-    <Table borderless hover>
+    <Table borderless={!variation} hover>
       <thead>
         <tr className="table-row-bordered">{tableHeadRender}</tr>
       </thead>
-      {tableRowsRender}
+      <tbody className="bordered-table-custom mb-5">{tableRowsRender}</tbody>
     </Table>
   );
 };
