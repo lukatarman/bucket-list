@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.adapter.js";
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
 
 const FileListBehavior = (uploadButtonRef) => {
   const selectedBucket = useRecoilValue(selectedBucketState);
-  const setFilesTable = useSetRecoilState(filesTableState);
+  const [filesTable, setFilesTable] = useRecoilState(filesTableState);
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
@@ -17,6 +17,16 @@ const FileListBehavior = (uploadButtonRef) => {
 
     fetchData();
   }, [setFilesTable]);
+
+  const fixFilesTable = () => {
+    return filesTable.map((filesTableValue) => {
+      const fixedArr = [];
+
+      for (const property in filesTableValue) fixedArr.push(filesTableValue[property]);
+
+      return fixedArr;
+    });
+  };
 
   const handleFileUpload = async (e) => {
     const formData = new FormData();
@@ -50,6 +60,7 @@ const FileListBehavior = (uploadButtonRef) => {
     handleDeleteButtonClick,
     handleUploadButtonClick,
     handleFileUpload,
+    fixFilesTable,
   ];
 };
 
