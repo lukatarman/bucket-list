@@ -1,7 +1,12 @@
 import { Table } from "react-bootstrap";
 import CustomTableItem from "../CustomTableItem/custom.table.item.js";
 
-const CustomTable = ({ handleTableItemClick, tableValues, firstRowWidth }) => {
+const CustomTable = ({
+  handleTableItemClick,
+  tableValues,
+  firstRowWidth,
+  variation = false,
+}) => {
   const tableRowsRender = tableValues.rows.map((result, index) => {
     return (
       <CustomTableItem
