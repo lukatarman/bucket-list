@@ -61,6 +61,7 @@ const FileListBehavior = (uploadButtonRef) => {
     handleUploadButtonClick,
     handleFileUpload,
     fixFilesTable,
+    filesTable,
   ];
 };
 
