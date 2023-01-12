@@ -23,22 +23,6 @@ const FileList = () => {
     fixFilesTable,
   ] = FileListBehavior(uploadButtonRef);
 
-  const tableRender = filesTable.map((file, index) => (
-    <tr key={index}>
-      <td className="d-flex align-items-center">
-        <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
-        <div className="d-flex align-items-center p-2">{file.name}</div>
-      </td>
-
-      <td>
-        <div className="p-2">{file.lastModified}</div>
-      </td>
-      <td>
-        <div className="p-2">{file.size}</div>
-      </td>
-    </tr>
-  ));
-
   const tableValues = {
     head: ["Name", "Last Modified", "Size"],
     rows: fixFilesTable(),
@@ -82,19 +66,6 @@ const FileList = () => {
           firstRowWidth="55%"
           variation={true}
         />
-
-        <Table hover>
-          <thead>
-            <tr className="table-row-bordered">
-              <th width="55%" className="table-head-content">
-                Name
-              </th>
-              <th className="table-head-content">Last Modified</th>
-              <th className="table-head-content">Size</th>
-            </tr>
-          </thead>
-          <tbody className="bordered-table-custom mb-5">{tableRender}</tbody>
-        </Table>
       </div>
     </div>
   );
