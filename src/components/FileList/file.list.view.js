@@ -1,4 +1,4 @@
-import { Row, Col, Table } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useRef } from "react";
 import AlertPopup from "../AlertPopup/AlertPopup.js";
 import CustomButton from "../CustomButton/custom.button.js";
