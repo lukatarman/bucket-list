@@ -1,9 +1,4 @@
 import { Container, Tab, Tabs } from "react-bootstrap";
-import { useRecoilValue, useRecoilState } from "recoil";
-import {
-  visibleDeleteState,
-  showDetailsAlertState,
-} from "../../contexts/MyStorageContext";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
 import AlertPopup from "../../components/AlertPopup/AlertPopup.js";
@@ -11,11 +6,15 @@ import CustomButton from "../../components/CustomButton/custom.button.js";
 import MyStorageBehavior from "./my.storage.behavior.js";
 
 const MyStorage = () => {
-  const visibleDelete = useRecoilValue(visibleDeleteState);
-  const [showDetailsAlert, setShowDetailsAlert] = useRecoilState(showDetailsAlertState);
-
-  const [handleDeleteClick, selectedBucket, visibleTab, handleTabSelect] =
-    MyStorageBehavior();
+  const [
+    handleDeleteClick,
+    selectedBucket,
+    visibleTab,
+    handleTabSelect,
+    visibleDelete,
+    showDetailsAlert,
+    setShowDetailsAlert,
+  ] = MyStorageBehavior();
 
   return (
     <Container fluid className="px-5">
