@@ -8,13 +8,15 @@ import {
 import {
   visibleTabState,
   visibleDeleteState,
+  showDetailsAlertState,
 } from "../../contexts/MyStorageContext/index.js";
 
 const MyStorageBehavior = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
   const [visibleTab, setVisibleTab] = useRecoilState(visibleTabState);
-  const setVisibleDelete = useSetRecoilState(visibleDeleteState);
+  const [visibleDelete, setVisibleDelete] = useRecoilState(visibleDeleteState);
+  const [showDetailsAlert, setShowDetailsAlert] = useRecoilState(showDetailsAlertState);
 
   useEffect(() => {
     visibleTab === "file-details" ? setVisibleDelete(true) : setVisibleDelete(false);
@@ -28,7 +30,15 @@ const MyStorageBehavior = () => {
   const handleTabSelect = (tab) => {
     setVisibleTab(tab);
   };
-  return [handleDeleteClick, selectedBucket, visibleTab, handleTabSelect];
+  return [
+    handleDeleteClick,
+    selectedBucket,
+    visibleTab,
+    handleTabSelect,
+    visibleDelete,
+    showDetailsAlert,
+    setShowDetailsAlert,
+  ];
 };
 
 export default MyStorageBehavior;
