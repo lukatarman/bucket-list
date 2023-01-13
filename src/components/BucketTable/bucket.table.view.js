@@ -1,5 +1,4 @@
 import BucketTableBehavior from "./bucket.table.behavior.js";
-
 import CustomTable from "../CustomTable/custom.table.view.js";
 
 const BucketTable = () => {
