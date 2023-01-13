@@ -7,7 +7,7 @@ export class File {
   //prettier-ignore
   constructor(fileDetails) {
     this.name         = fileDetails.originalname;
-    this.lastModified = fileDetails.lastModified;
+    this.lastModified = Date.parse(new Date());
     this.size         = fileDetails.size;
     this.buffer       = fileDetails.buffer;
   }
