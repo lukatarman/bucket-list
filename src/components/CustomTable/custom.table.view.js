@@ -32,7 +32,7 @@ const CustomTable = ({
   });
 
   return (
-    <Table borderless={!variation} hover>
+    <Table className="mb-0" borderless={!variation} hover>
       <thead>
         <tr className="table-row-bordered">{tableHeadRender}</tr>
       </thead>
