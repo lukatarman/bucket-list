@@ -53,6 +53,12 @@ const FileListBehavior = (uploadButtonRef) => {
 
     setFilesTable(response.data);
   };
+
+  const tableValues = {
+    head: ["Name", "Last Modified", "Size"],
+    rows: fixFilesTable(),
+  };
+
   return [
     showAlert,
     setShowAlert,
@@ -60,8 +66,8 @@ const FileListBehavior = (uploadButtonRef) => {
     handleDeleteButtonClick,
     handleUploadButtonClick,
     handleFileUpload,
-    fixFilesTable,
     filesTable,
+    tableValues,
   ];
 };
 

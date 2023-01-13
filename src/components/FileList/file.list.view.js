@@ -15,14 +15,9 @@ const FileList = () => {
     handleDeleteButtonClick,
     handleUploadButtonClick,
     handleFileUpload,
-    fixFilesTable,
     filesTable,
+    tableValues,
   ] = FileListBehavior(uploadButtonRef);
-
-  const tableValues = {
-    head: ["Name", "Last Modified", "Size"],
-    rows: fixFilesTable(),
-  };
 
   return (
     <div>
