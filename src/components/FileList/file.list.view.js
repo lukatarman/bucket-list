@@ -5,6 +5,10 @@ import CustomButton from "../CustomButton/custom.button.js";
 import CustomTable from "../CustomTable/custom.table.view.js";
 import FileListBehavior from "./file.list.behavior.js";
 
+// todo
+// add proper file size format to frontend
+// fix default backend values
+
 const FileList = () => {
   const uploadButtonRef = useRef();
 
