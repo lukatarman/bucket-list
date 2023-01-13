@@ -18,6 +18,10 @@ const FileListBehavior = (uploadButtonRef) => {
     fetchData();
   }, [setFilesTable]);
 
+  useEffect(() => {
+    console.log(filesTable);
+  }, [filesTable]);
+
   const handleFileUpload = async (e) => {
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
@@ -48,7 +52,10 @@ const FileListBehavior = (uploadButtonRef) => {
     return filesTable.map((filesTableValue) => {
       const fixedArr = [];
 
-      for (const property in filesTableValue) fixedArr.push(filesTableValue[property]);
+      for (const property in filesTableValue) {
+        if (typeof filesTableValue[property] === "object") continue;
+        fixedArr.push(filesTableValue[property]);
+      }
 
       return fixedArr;
     });
