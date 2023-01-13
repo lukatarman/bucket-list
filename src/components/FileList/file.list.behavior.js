@@ -18,16 +18,6 @@ const FileListBehavior = (uploadButtonRef) => {
     fetchData();
   }, [setFilesTable]);
 
-  const fixFilesTable = () => {
-    return filesTable.map((filesTableValue) => {
-      const fixedArr = [];
-
-      for (const property in filesTableValue) fixedArr.push(filesTableValue[property]);
-
-      return fixedArr;
-    });
-  };
-
   const handleFileUpload = async (e) => {
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
@@ -52,6 +42,16 @@ const FileListBehavior = (uploadButtonRef) => {
     const response = await getFiles(selectedBucket.index);
 
     setFilesTable(response.data);
+  };
+
+  const fixFilesTable = () => {
+    return filesTable.map((filesTableValue) => {
+      const fixedArr = [];
+
+      for (const property in filesTableValue) fixedArr.push(filesTableValue[property]);
+
+      return fixedArr;
+    });
   };
 
   const tableValues = {
