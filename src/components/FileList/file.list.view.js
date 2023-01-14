@@ -6,7 +6,6 @@ import CustomTable from "../CustomTable/custom.table.view.js";
 import FileListBehavior from "./file.list.behavior.js";
 
 // todo
-// fix default backend values
 // remove console logs
 
 const FileList = () => {
