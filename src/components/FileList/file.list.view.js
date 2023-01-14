@@ -7,6 +7,7 @@ import FileListBehavior from "./file.list.behavior.js";
 
 // todo
 // add proper file size format to frontend
+// fix proper file size in file details component
 // fix default backend values
 // remove console logs
 
