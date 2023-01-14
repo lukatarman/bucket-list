@@ -3,7 +3,7 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { uploadFile, getFiles, deleteFile } from "../../adapters/http.client.adapter.js";
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
-import { fixDate } from "../../utils/date.js";
+import { fixFilesTable } from "./services/file.list.service.js";
 
 const FileListBehavior = (uploadButtonRef) => {
   const selectedBucket = useRecoilValue(selectedBucketState);
@@ -49,28 +49,9 @@ const FileListBehavior = (uploadButtonRef) => {
     setFilesTable(response.data);
   };
 
-  const fixFilesTable = () => {
-    console.log(filesTable);
-    return filesTable.map((filesTableValue) => {
-      const fixedArr = [];
-
-      for (const property in filesTableValue) {
-        if (typeof filesTableValue[property] === "object") continue;
-        if (property === "lastModified") {
-          fixedArr.push(fixDate(filesTableValue[property]));
-          continue;
-        }
-        fixedArr.push(filesTableValue[property]);
-      }
-
-      console.log(fixedArr);
-      return fixedArr;
-    });
-  };
-
   const tableValues = {
     head: ["Name", "Last Modified", "Size"],
-    rows: fixFilesTable(),
+    rows: fixFilesTable(filesTable),
   };
 
   return [
