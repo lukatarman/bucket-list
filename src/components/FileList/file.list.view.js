@@ -8,6 +8,7 @@ import FileListBehavior from "./file.list.behavior.js";
 // todo
 // add proper file size format to frontend
 // fix default backend values
+// remove console logs
 
 const FileList = () => {
   const uploadButtonRef = useRef();
