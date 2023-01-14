@@ -4,7 +4,7 @@ import {
   displayCreateBucketState,
   displayCreateButtonState,
   bucketListTableResultsState,
-} from "../../contexts/BucketListContext/index.js";
+} from "../../contexts/BucketListContext";
 import { createBucket, getBuckets } from "../../adapters/http.client.adapter.js";
 
 const CreateBucketBehavior = () => {
