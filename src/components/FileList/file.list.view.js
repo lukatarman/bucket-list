@@ -5,9 +5,6 @@ import CustomButton from "../CustomButton/custom.button.js";
 import CustomTable from "../CustomTable/custom.table.view.js";
 import FileListBehavior from "./file.list.behavior.js";
 
-// todo
-// remove console logs
-
 const FileList = () => {
   const uploadButtonRef = useRef();
 
