@@ -2,17 +2,12 @@
   {
     "name": "BestStorage",
     "location": "Kranj",
-    "size": "4.9 GB",
+    "size": 5364412416,
     "files": [
-      { "name": "FileName01", "lastModified": "06.09.2015", "size": "2 MB" },
-      { "name": "FileName02", "lastModified": "05.01.2015", "size": "100 KB" },
-      { "name": "FileName03", "lastModified": "12.11.2016", "size": "2 MB" }
+      { "name": "FileName01", "lastModified": 1433800800000, "size": 2097152 },
+      { "name": "FileName02", "lastModified": 1430431200000, "size": 102400 },
+      { "name": "FileName03", "lastModified": 1481410800000, "size": 2097152 }
     ]
   },
-  {
-    "name": "Pics",
-    "location": "Ljubljana",
-    "size": "4.9 GB",
-    "files": []
-  }
+  { "name": "Pics", "location": "Ljubljana", "size": 5368709120, "files": [] }
 ]
