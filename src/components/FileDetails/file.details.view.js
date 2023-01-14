@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { selectedBucketState } from "../../contexts/AppContext/index.js";
+import { fixBytes } from "../../utils/file.size.js";
 
 const FileDetails = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
@@ -14,7 +15,7 @@ const FileDetails = () => {
       <div className="p-3">
         <div>{selectedBucket.name}</div>
         <div>{selectedBucket.location}</div>
-        <div>{selectedBucket.size}</div>
+        <div>{fixBytes(selectedBucket.size)}</div>
       </div>
     </div>
   );
