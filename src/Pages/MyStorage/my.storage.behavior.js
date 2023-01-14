@@ -1,15 +1,12 @@
 import { useRecoilValue, useRecoilState, useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import { deleteBucket } from "../../adapters/http.client.adapter.js";
-import {
-  selectedBucketState,
-  visiblePageState,
-} from "../../contexts/AppContext/index.js";
+import { selectedBucketState, visiblePageState } from "../../contexts/AppContext";
 import {
   visibleTabState,
   visibleDeleteState,
   showDetailsAlertState,
-} from "../../contexts/MyStorageContext/index.js";
+} from "../../contexts/MyStorageContext";
 
 const MyStorageBehavior = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
