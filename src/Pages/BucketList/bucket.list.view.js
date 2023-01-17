@@ -1,28 +1,19 @@
 import { Container } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
-import { useRecoilValue, useRecoilState } from "recoil";
-import {
-  bucketListTableResultsState,
-  displayCreateBucketState,
-  displayCreateButtonState,
-} from "../../contexts/BucketListContext/index.js";
-import BucketTable from "../../components/BucketTable/bucket.table.view.js";
+import CustomTable from "../../components/CustomTable/custom.table.view.js";
 import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
 import CustomButton from "../../components/CustomButton/custom.button.js";
+import BucketListBehavior from "./bucket.list.behavior.js";
 
 const BucketList = () => {
-  const [displayCreateBucket, setDisplayCreateBucket] = useRecoilState(
-    displayCreateBucketState
-  );
-  const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
-    displayCreateButtonState
-  );
-  const tableResults = useRecoilValue(bucketListTableResultsState);
-
-  const handleClick = () => {
-    setDisplayCreateButton(false);
-    setDisplayCreateBucket(true);
-  };
+  const [
+    displayCreateBucket,
+    displayCreateButton,
+    tableResults,
+    handleButtonClick,
+    handleTableItemClick,
+    tableValues,
+  ] = BucketListBehavior();
 
   return (
     <Container fluid className="px-5">
@@ -39,14 +30,18 @@ const BucketList = () => {
                 {displayCreateButton ? (
                   <CustomButton
                     customClasses="py-0"
-                    handleClick={handleClick}
+                    handleClick={handleButtonClick}
                     buttonValue="Create New Bucket"
                   />
                 ) : null}
               </Col>
             </Row>
           </div>
-          <BucketTable />
+          <CustomTable
+            handleTableItemClick={handleTableItemClick}
+            tableValues={tableValues}
+            firstRowWidth="70%"
+          />
         </div>
       </div>
     </Container>
