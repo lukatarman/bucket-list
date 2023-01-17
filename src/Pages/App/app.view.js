@@ -1,10 +1,9 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
-import { Container } from "react-bootstrap";
+import { useRecoilState } from "recoil";
+import { Navbar, Container } from "react-bootstrap";
+import { visiblePageState } from "../../contexts/AppContext/index.js";
 import BucketList from "../BucketList/bucket.list.view.js";
 import MyStorage from "../MyStorage/my.storage.view.js";
-import { useRecoilState } from "recoil";
-import { visiblePageState } from "../../contexts/AppContext/index.js";
 
 const App = () => {
   const [visiblePage, setVisiblePage] = useRecoilState(visiblePageState);
