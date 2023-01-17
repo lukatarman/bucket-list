@@ -1,6 +1,6 @@
 import React from "react";
-import { useRecoilState } from "recoil";
 import { Navbar, Container } from "react-bootstrap";
+import { useRecoilState } from "recoil";
 import { visiblePageState } from "../../contexts/AppContext/index.js";
 import BucketList from "../BucketList/bucket.list.view.js";
 import MyStorage from "../MyStorage/my.storage.view.js";
