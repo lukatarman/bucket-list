@@ -1,16 +1,11 @@
 import React from "react";
 import { Navbar, Container } from "react-bootstrap";
-import { useRecoilState } from "recoil";
-import { visiblePageState } from "../../contexts/AppContext/index.js";
 import BucketList from "../BucketList/bucket.list.view.js";
 import MyStorage from "../MyStorage/my.storage.view.js";
+import AppBehavior from "./app.behavior.js";
 
 const App = () => {
-  const [visiblePage, setVisiblePage] = useRecoilState(visiblePageState);
-
-  const handleBrandClick = () => {
-    setVisiblePage("bucket-list");
-  };
+  const [visiblePage, handleBrandClick] = AppBehavior();
 
   const render = () => {
     if (visiblePage === "bucket-list") return <BucketList />;
