@@ -38,7 +38,7 @@ const BucketListBehavior = () => {
     const tableResults = fetchResults.map((result) => [result.name, result.location]);
 
     setTableValues({ head: tableValues.head, rows: tableResults });
-  }, [fetchResults]);
+  }, [fetchResults, tableValues.head]);
 
   const handleButtonClick = () => {
     setDisplayCreateButton(false);
