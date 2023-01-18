@@ -1,5 +1,4 @@
 .navbar-custom {
-  background-color: #666666;
   color: #fdfcfb;
 }
 
@@ -15,11 +14,6 @@
   cursor: pointer;
 }
 
-.table-row-bordered {
-  border: solid 2px black;
-  background-color: #ddd;
-}
-
 .bucket-input:focus {
   border: 1px solid;
   outline: 1px solid black;
@@ -27,10 +21,6 @@
 }
 
 /* continue here */
-
-.bordered-table-custom {
-  outline: 1px solid black;
-}
 
 .element-position-custom {
   position: relative;
