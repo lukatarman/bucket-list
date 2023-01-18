@@ -11,6 +11,7 @@
     "@testing-library/user-event": "13.5.0",
     "axios": "1.2.0",
     "bootstrap": "4.6.2",
+    "node-sass": "^7.0.3",
     "react": "18.2.0",
     "react-bootstrap": "2.6.0",
     "react-dom": "18.2.0",
@@ -23,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "scss": "node-sass --watch src/assets/scss -o src/assets/csss",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
