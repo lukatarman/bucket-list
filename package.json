@@ -23,7 +23,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "scss": "node-sass --watch src/assets/scss -o src/assets/csss",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
