@@ -21,11 +21,7 @@ const CustomTable = ({
 
   const tableHeadRender = tableValues.head.map((value, index) => {
     return (
-      <th
-        key={index}
-        width={index === 0 ? firstRowWidth : ""}
-        className="table-head-content"
-      >
+      <th key={index} width={index === 0 ? firstRowWidth : ""} className="py-1">
         {value}
       </th>
     );
