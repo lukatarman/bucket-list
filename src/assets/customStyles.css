@@ -20,16 +20,9 @@
   background-color: #ddd;
 }
 
-.custom-form-control {
-  width: 80%;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 1px;
-}
-
-.custom-form-control:focus {
-  border: none;
-  outline: 2px solid black;
+.bucket-input:focus {
+  border: 1px solid;
+  outline: 1px solid black;
   box-shadow: none;
 }
 

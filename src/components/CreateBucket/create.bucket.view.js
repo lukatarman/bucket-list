@@ -15,7 +15,7 @@ const CreateBucket = () => {
           <Col>
             <Form.Label>Bucket Name*</Form.Label>
             <Form.Control
-              className="custom-form-control"
+              className="bucket-input rounded w-75 py-1"
               type="text"
               value={nameInputValue}
               onChange={handleNameChange}
