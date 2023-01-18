@@ -19,14 +19,3 @@
   outline: 1px solid black;
   box-shadow: none;
 }
-
-/* continue here */
-
-.tabs-outline-custom,
-.tabs-outline-custom * {
-  border: none !important;
-}
-
-.custom-modal {
-  margin: auto;
-}
