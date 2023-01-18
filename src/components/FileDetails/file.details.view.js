@@ -6,7 +6,7 @@ const FileDetails = () => {
   const selectedBucket = useRecoilValue(selectedBucketState);
 
   return (
-    <div className="px-5 bg-white py-3 d-flex flex-row">
+    <div className="px-5 bg-white py-3 d-flex flex-row  border border-top-0">
       <div className="p-3">
         <div>Bucket name:</div>
         <div>Location:</div>
