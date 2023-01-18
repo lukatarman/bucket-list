@@ -24,7 +24,7 @@ const MyStorage = () => {
         handleDelete={handleDeleteClick}
       />
       <h4 className="my-3">{selectedBucket.name}</h4>
-      <div className="element-position-custom">
+      <div className="position-relative">
         <Tabs
           className="tabs-outline-custom"
           activeKey={visibleTab}
