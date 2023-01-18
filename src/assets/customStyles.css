@@ -7,11 +7,6 @@
   cursor: pointer;
 }
 
-.app-background {
-  background-color: #eff2f4;
-  height: 100vh;
-}
-
 .btn-custom {
   background-color: white;
   border: 2px solid black;
