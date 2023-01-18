@@ -3,10 +3,6 @@
   color: #fdfcfb;
 }
 
-.brand-custom:hover {
-  cursor: pointer;
-}
-
 .btn-custom {
   background-color: white;
   border: 2px solid black;
