@@ -17,7 +17,7 @@
 
 .table-row-bordered {
   border: solid 2px black;
-  background-color: #cccccc;
+  background-color: #ddd;
 }
 
 .table-row-content:hover {
