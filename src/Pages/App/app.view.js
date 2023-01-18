@@ -13,7 +13,7 @@ const App = () => {
   };
 
   return (
-    <div className="app-background">
+    <div className="vh-100">
       <Navbar variant="custom" className="px-3">
         <Container fluid>
           <h4 className="brand-custom" onClick={handleBrandClick}>
