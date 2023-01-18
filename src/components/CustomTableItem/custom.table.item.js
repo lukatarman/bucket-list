@@ -14,7 +14,7 @@ const CustomTableItem = ({
     return (
       <td
         key={i}
-        className={variation && i === 0 ? "d-flex align-items-center" + lastBorder : ""}
+        className={variation && i === 0 ? `d-flex align-items-center ${lastBorder}` : ""}
       >
         {variation && i === 0 ? (
           <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
