@@ -26,7 +26,7 @@ const FileList = () => {
         setShowAlert={setShowAlert}
         handleDelete={handleDelete}
       />
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-white border border-top-0">
         <Row className="mb-4">
           <Col className="d-flex align-items-center">
             <div>All Files ({filesTable.length})</div>
