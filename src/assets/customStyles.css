@@ -22,12 +22,6 @@
 
 /* continue here */
 
-.delete-buttom-custom {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-
 .tabs-outline-custom,
 .tabs-outline-custom * {
   border: none !important;

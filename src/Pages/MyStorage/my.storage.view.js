@@ -39,7 +39,7 @@ const MyStorage = () => {
         </Tabs>
         {visibleDelete && (
           <CustomButton
-            customClasses="delete-buttom-custom"
+            customClasses="position-absolute top-0 end-0"
             handleClick={() => setShowDetailsAlert(true)}
             buttonValue="Delete Bucket"
           />
