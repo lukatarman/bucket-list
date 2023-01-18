@@ -13,10 +13,10 @@ const App = () => {
   };
 
   return (
-    <div className="vh-100">
+    <div className="vh-100 bg-light">
       <Navbar variant="custom" className="px-3">
         <Container fluid>
-          <h4 className="brand-custom" onClick={handleBrandClick}>
+          <h4 role="button" onClick={handleBrandClick}>
             Secure cloud storage
           </h4>
         </Container>
