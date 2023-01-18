@@ -20,10 +20,6 @@
   background-color: #ddd;
 }
 
-.table-row-content:hover {
-  cursor: pointer;
-}
-
 .custom-form-control {
   width: 80%;
   padding-top: 3px;
