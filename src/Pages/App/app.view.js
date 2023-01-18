@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div className="vh-100 bg-light">
-      <Navbar variant="custom" className="px-3">
+      <Navbar variant="custom" className="px-3 bg-secondary">
         <Container fluid>
           <h4 role="button" onClick={handleBrandClick}>
             Secure cloud storage
