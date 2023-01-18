@@ -8,6 +8,8 @@ const CustomTable = ({
   variation = false,
 }) => {
   const tableRowsRender = tableValues.rows.map((result, index) => {
+    const lastIndex = tableValues.rows.length - 1;
+
     return (
       <CustomTableItem
         key={index}
@@ -15,6 +17,7 @@ const CustomTable = ({
         index={index}
         handleTableItemClick={handleTableItemClick}
         variation={variation}
+        lastIndex={lastIndex}
       />
     );
   });
