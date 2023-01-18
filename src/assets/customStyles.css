@@ -26,15 +26,7 @@
   box-shadow: none;
 }
 
-.dropdown-custom {
-  width: 80%;
-  border-radius: 1px;
-  padding: 3px;
-}
-
-.custom-tab {
-  background-color: purple;
-}
+/* continue here */
 
 .bordered-table-custom {
   outline: 1px solid black;

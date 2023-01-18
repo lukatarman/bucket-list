@@ -15,7 +15,7 @@ const CreateBucket = () => {
           <Col>
             <Form.Label>Bucket Name*</Form.Label>
             <Form.Control
-              className="bucket-input rounded w-75 py-1"
+              className="bucket-input rounded-0 w-75 py-1"
               type="text"
               value={nameInputValue}
               onChange={handleNameChange}
@@ -24,7 +24,7 @@ const CreateBucket = () => {
           <Col>
             <Form.Label>Bucket Location*</Form.Label>
             <Dropdown
-              controlClassName="dropdown-custom"
+              controlClassName="w-75 rounded-0 p-1"
               menuClassName="dropdown-custom"
               onChange={handleLocationChange}
               options={["Kranj", "Ljubljana"]}
