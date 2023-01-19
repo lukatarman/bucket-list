@@ -4,6 +4,8 @@ import BucketList from "../BucketList/bucket.list.view.js";
 import MyStorage from "../MyStorage/my.storage.view.js";
 import AppBehavior from "./app.behavior.js";
 
+// todo continue checking code first instnace of CustomButton usage in bucket.list.view.js and after
+
 const App = () => {
   const [visiblePage, handleBrandClick] = AppBehavior();
 
