@@ -1,6 +1,7 @@
 import { Row, Col, Form } from "react-bootstrap";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import CustomButton from "../CustomButton/custom.button.js";
 import CreateBucketBehavior from "./create.bucket.behavior.js";
 
 const CreateBucket = () => {
