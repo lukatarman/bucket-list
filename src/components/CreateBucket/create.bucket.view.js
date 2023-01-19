@@ -34,9 +34,7 @@ const CreateBucket = () => {
           </Col>
         </Row>
 
-        <Button className="py-0" variant="custom" type="submit">
-          Create Bucket
-        </Button>
+        <CustomButton type="submit" buttonValue="Create Bucket" />
       </form>
     </div>
   );
