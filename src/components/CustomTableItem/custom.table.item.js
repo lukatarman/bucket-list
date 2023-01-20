@@ -10,6 +10,7 @@ const CustomTableItem = ({
 }) => {
   const renderItems = items.map((item, i) => {
     const lastBottomBorder = index === lastIndex ? " border-bottom-0" : "";
+
     return (
       <td
         key={i}
