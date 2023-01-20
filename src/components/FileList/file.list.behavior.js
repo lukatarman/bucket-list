@@ -35,14 +35,6 @@ const FileListBehavior = (uploadButtonRef) => {
     refreshSelectedBucket();
   };
 
-  const handleDeleteButtonClick = async () => {
-    setShowAlert(true);
-  };
-
-  const handleUploadButtonClick = () => {
-    uploadButtonRef.current.click();
-  };
-
   const handleFileDelete = async () => {
     await deleteFile(selectedBucket.index);
 
@@ -59,6 +51,14 @@ const FileListBehavior = (uploadButtonRef) => {
       ...response.data[selectedBucket.index],
       index: selectedBucket.index,
     });
+  };
+
+  const handleUploadButtonClick = () => {
+    uploadButtonRef.current.click();
+  };
+
+  const handleDeleteButtonClick = async () => {
+    setShowAlert(true);
   };
 
   const tableValues = {
