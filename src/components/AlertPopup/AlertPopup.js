@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { Modal } from "react-bootstrap";
+import { useRecoilValue } from "recoil";
+import { selectedFileList } from "../../contexts/BucketListContext/index.js";
 import CustomButton from "../CustomButton/custom.button.js";
 
 const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
+  const selectedFileIndex = useRecoilValue(selectedFileList);
+
   const handleClose = () => setShowAlert(false);
 
   const handleDeleteConfirm = () => {
@@ -9,8 +14,28 @@ const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
     handleClose();
   };
 
-  return (
-    <div>
+  const renderBody = () => {
+    if (type === "bucket") return deleteConfirmRender();
+    if (selectedFileIndex === null) return selectItemRender();
+
+    return deleteConfirmRender();
+  };
+
+  const selectItemRender = () => {
+    return (
+      <Modal centered show={showAlert} onHide={handleClose}>
+        <Modal.Body>
+          <div className="mb-2">Please select the file you want to delete</div>
+          <div>
+            <CustomButton customClasses="" handleClick={handleClose} buttonValue="Okay" />
+          </div>
+        </Modal.Body>
+      </Modal>
+    );
+  };
+
+  const deleteConfirmRender = () => {
+    return (
       <Modal centered show={showAlert} onHide={handleClose}>
         <Modal.Body>
           <div className="mb-2">Do you really want to delete this {type}?</div>
@@ -28,8 +53,10 @@ const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
           </div>
         </Modal.Body>
       </Modal>
-    </div>
-  );
+    );
+  };
+
+  return <div>{renderBody()}</div>;
 };
 
 export default AlertPopup;
