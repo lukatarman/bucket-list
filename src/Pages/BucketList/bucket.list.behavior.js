@@ -15,8 +15,8 @@ const BucketListBehavior = () => {
   const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
     displayCreateButtonState
   );
-  const tableResults = useRecoilValue(bucketListTableResultsState);
   const [fetchResults, setFetchResults] = useRecoilState(bucketListTableResultsState);
+  const tableResults = useRecoilValue(bucketListTableResultsState);
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
 
