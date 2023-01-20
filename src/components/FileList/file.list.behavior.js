@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useRecoilState } from "recoil";
 import {
   getBuckets,
   uploadFile,
   getFiles,
   deleteFile,
 } from "../../adapters/http.client.adapter.js";
+import { useRecoilState } from "recoil";
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
 import { fixFilesTable } from "./services/file.list.service.js";

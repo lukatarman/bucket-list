@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { selectedBucketState, visiblePageState } from "../../contexts/AppContext";
 import {
   bucketListTableResultsState,
   displayCreateBucketState,
   displayCreateButtonState,
 } from "../../contexts/BucketListContext";
-import { visibleTabState } from "../../contexts/MyStorageContext/index.js";
+import { visibleTabState } from "../../contexts/MyStorageContext";
 
 const BucketListBehavior = () => {
   const [displayCreateBucket, setDisplayCreateBucket] = useRecoilState(

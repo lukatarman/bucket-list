@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { createBucket, getBuckets } from "../../adapters/http.client.adapter.js";
 import { useSetRecoilState } from "recoil";
 import {
   displayCreateBucketState,
   displayCreateButtonState,
   bucketListTableResultsState,
 } from "../../contexts/BucketListContext";
-import { createBucket, getBuckets } from "../../adapters/http.client.adapter.js";
 
 const CreateBucketBehavior = () => {
   const setDisplayCreateBucket = useSetRecoilState(displayCreateBucketState);

@@ -1,7 +1,7 @@
 import { Container, Tab, Tabs } from "react-bootstrap";
 import FileList from "../../components/FileList/file.list.view.js";
 import FileDetails from "../../components/FileDetails/file.details.view.js";
-import AlertPopup from "../../components/AlertPopup/AlertPopup.js";
+import AlertPopup from "../../components/AlertPopup/alertPopup.js";
 import CustomButton from "../../components/CustomButton/custom.button.js";
 import MyStorageBehavior from "./my.storage.behavior.js";
 

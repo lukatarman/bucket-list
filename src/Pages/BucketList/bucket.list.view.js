@@ -1,5 +1,4 @@
-import { Container } from "react-bootstrap";
-import { Col, Row } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import CustomTable from "../../components/CustomTable/custom.table.view.js";
 import CreateBucket from "../../components/CreateBucket/create.bucket.view.js";
 import CustomButton from "../../components/CustomButton/custom.button.js";
