@@ -1,9 +1,14 @@
 import { Button } from "react-bootstrap";
 
-const CustomButton = ({ customClasses, handleClick, buttonValue, type = "button" }) => {
+const CustomButton = ({
+  customClasses = "py-0",
+  handleClick,
+  buttonValue,
+  type = "button",
+}) => {
   return (
     <Button
-      className={`${customClasses} py-0`}
+      className={`${customClasses}`}
       variant="custom"
       type={type}
       onClick={handleClick}
