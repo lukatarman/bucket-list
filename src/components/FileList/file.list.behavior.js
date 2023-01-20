@@ -67,13 +67,13 @@ const FileListBehavior = (uploadButtonRef) => {
   };
 
   return [
+    filesTable,
     showAlert,
     setShowAlert,
     handleFileUpload,
     handleFileDelete,
-    handleDeleteButtonClick,
     handleUploadButtonClick,
-    filesTable,
+    handleDeleteButtonClick,
     tableValues,
   ];
 };

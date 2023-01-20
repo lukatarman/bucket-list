@@ -9,13 +9,13 @@ const FileList = () => {
   const uploadButtonRef = useRef();
 
   const [
+    filesTable,
     showAlert,
     setShowAlert,
     handleFileUpload,
     handleFileDelete,
-    handleDeleteButtonClick,
     handleUploadButtonClick,
-    filesTable,
+    handleDeleteButtonClick,
     tableValues,
   ] = FileListBehavior(uploadButtonRef);
 
