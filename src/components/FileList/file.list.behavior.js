@@ -63,7 +63,6 @@ const FileListBehavior = (uploadButtonRef) => {
   };
 
   const handleDeleteButtonClick = async () => {
-    if (selectedFileIndex === null) return;
     setShowAlert(true);
   };
 
