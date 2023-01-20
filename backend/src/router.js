@@ -1,4 +1,5 @@
 import multer from "fastify-multer";
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -38,7 +39,7 @@ export class QueriesRouter {
 
     server.delete("/buckets/:id/files", async (request, reply) => {
       const id = parseInt(request.params.id);
-      return this.#controller.deleteFile(id);
+      return this.#controller.deleteFile(id, request.body);
     });
   };
 }
