@@ -44,14 +44,14 @@ export class StorageClient {
     this.#saveFileWithNewData(existingData);
   }
 
-  deleteFile(bucketIndex) {
+  deleteFile(bucketIndex, file) {
     const existingData = this.#getParsedFile();
 
     let currentBucket = Bucket.createExistingBucket(existingData[bucketIndex]);
     const currentFileSize = currentBucket.files[currentBucket.files.length - 1].size;
 
     currentBucket.addSize(currentFileSize);
-    currentBucket.files.pop();
+    currentBucket.files.splice(file.fileIndex, 1);
 
     existingData[bucketIndex] = currentBucket;
 
