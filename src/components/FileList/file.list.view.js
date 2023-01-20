@@ -16,6 +16,7 @@ const FileList = () => {
     handleFileDelete,
     handleUploadButtonClick,
     handleDeleteButtonClick,
+    handleFileClick,
     tableValues,
   ] = FileListBehavior(uploadButtonRef);
 
@@ -52,7 +53,7 @@ const FileList = () => {
           </Col>
         </Row>
         <CustomTable
-          handleTableItemClick={() => {}}
+          handleTableItemClick={handleFileClick}
           tableValues={tableValues}
           firstRowWidth="55%"
           variation={true}

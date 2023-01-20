@@ -61,6 +61,10 @@ const FileListBehavior = (uploadButtonRef) => {
     setShowAlert(true);
   };
 
+  const handleFileClick = (index) => {
+    setSelectedFileIndex(index);
+  };
+
   const tableValues = {
     head: ["Name", "Last Modified", "Size"],
     rows: fixFilesTable(filesTable),
