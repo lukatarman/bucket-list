@@ -26,11 +26,7 @@ const MyStorage = () => {
       />
       <h4 className="my-3">{selectedBucket.name}</h4>
       <div className="position-relative">
-        <Tabs
-          className="tabs-outline-custom"
-          activeKey={visibleTab}
-          onSelect={handleTabSelect}
-        >
+        <Tabs activeKey={visibleTab} onSelect={handleTabSelect}>
           <Tab eventKey="file-list" title="Files">
             <FileList />
           </Tab>
