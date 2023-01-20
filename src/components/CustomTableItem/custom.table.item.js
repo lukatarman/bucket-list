@@ -9,12 +9,14 @@ const CustomTableItem = ({
   lastIndex,
 }) => {
   const renderItems = items.map((item, i) => {
-    const lastBorder = index === lastIndex ? " border-bottom-0" : "";
+    const lastBottomBorder = index === lastIndex ? " border-bottom-0" : "";
 
     return (
       <td
         key={i}
-        className={variation && i === 0 ? `d-flex align-items-center ${lastBorder}` : ""}
+        className={
+          variation && i === 0 ? `d-flex align-items-center ${lastBottomBorder}` : ""
+        }
       >
         {variation && i === 0 ? (
           <FontAwesomeIcon className="p-2" icon={faFileLines} size="xl" />
