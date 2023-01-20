@@ -27,6 +27,7 @@ const MyStorageBehavior = () => {
   const handleTabSelect = (tab) => {
     setVisibleTab(tab);
   };
+
   return [
     handleDeleteClick,
     selectedBucket,
