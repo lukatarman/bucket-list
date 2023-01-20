@@ -13,7 +13,9 @@ import { fixFilesTable } from "./services/file.list.service.js";
 const FileListBehavior = (uploadButtonRef) => {
   const [selectedBucket, setSelectedBucket] = useRecoilState(selectedBucketState);
   const [filesTable, setFilesTable] = useRecoilState(filesTableState);
+
   const [showAlert, setShowAlert] = useState(false);
+  const [selectedFileIndex, setSelectedFileIndex] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,15 +35,17 @@ const FileListBehavior = (uploadButtonRef) => {
 
     setFilesTable(response.data);
     refreshSelectedBucket();
+    setSelectedFileIndex(null);
   };
 
   const handleFileDelete = async () => {
-    await deleteFile(selectedBucket.index);
+    await deleteFile(selectedBucket.index, selectedFileIndex);
 
     const response = await getFiles(selectedBucket.index);
 
     setFilesTable(response.data);
     refreshSelectedBucket();
+    setSelectedFileIndex(null);
   };
 
   const refreshSelectedBucket = async () => {
@@ -79,6 +83,7 @@ const FileListBehavior = (uploadButtonRef) => {
     handleFileDelete,
     handleUploadButtonClick,
     handleDeleteButtonClick,
+    handleFileClick,
     tableValues,
   ];
 };
