@@ -33,7 +33,7 @@ const CustomTable = ({
   return (
     <Table className="mb-0" borderless={!variation} hover>
       <thead>
-        <tr className="border border-dark bg-secondary">{tableHeadRender}</tr>
+        <tr className="border border-dark bg-secondary text-white">{tableHeadRender}</tr>
       </thead>
       <tbody className="border border-dark mb-5" role={variation ? "" : "button"}>
         {tableRowsRender}
