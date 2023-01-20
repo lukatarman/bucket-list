@@ -9,13 +9,14 @@ import { useRecoilState } from "recoil";
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
 import { fixFilesTable } from "./services/file.list.service.js";
+import { selectedFileList } from "../../contexts/BucketListContext/index.js";
 
 const FileListBehavior = (uploadButtonRef) => {
   const [selectedBucket, setSelectedBucket] = useRecoilState(selectedBucketState);
   const [filesTable, setFilesTable] = useRecoilState(filesTableState);
+  const [selectedFileIndex, setSelectedFileIndex] = useRecoilState(selectedFileList);
 
   const [showAlert, setShowAlert] = useState(false);
-  const [selectedFileIndex, setSelectedFileIndex] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {

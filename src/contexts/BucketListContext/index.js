@@ -14,3 +14,8 @@ export const bucketListTableResultsState = atom({
   key: "BucketListTableResults",
   default: [],
 });
+
+export const selectedFileList = atom({
+  key: "SelectedFileList",
+  default: null,
+});
