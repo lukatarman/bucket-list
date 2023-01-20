@@ -1,4 +1,4 @@
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import CustomButton from "../CustomButton/custom.button.js";
 
 const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
