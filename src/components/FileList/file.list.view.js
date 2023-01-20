@@ -34,7 +34,7 @@ const FileList = () => {
           </Col>
           <Col className="d-flex justify-content-end">
             <CustomButton
-              customClasses="mx-2"
+              customClasses="py-0 mx-2"
               handleClick={handleDeleteButtonClick}
               buttonValue="Delete Object"
             />
