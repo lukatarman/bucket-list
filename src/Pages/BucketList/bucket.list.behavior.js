@@ -7,6 +7,7 @@ import {
   displayCreateBucketState,
   displayCreateButtonState,
 } from "../../contexts/BucketListContext";
+import { visibleTabState } from "../../contexts/MyStorageContext/index.js";
 
 const BucketListBehavior = () => {
   const [displayCreateBucket, setDisplayCreateBucket] = useRecoilState(
@@ -18,6 +19,7 @@ const BucketListBehavior = () => {
   const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
+  const setVisibleTab = useSetRecoilState(visibleTabState);
 
   const [tableValues, setTableValues] = useState({
     head: ["Name", "Location"],
@@ -52,6 +54,7 @@ const BucketListBehavior = () => {
       index,
     });
     setVisiblePage("my-storage");
+    setVisibleTab("file-list");
   };
 
   return [
