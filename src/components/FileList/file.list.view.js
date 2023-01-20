@@ -11,10 +11,10 @@ const FileList = () => {
   const [
     showAlert,
     setShowAlert,
-    handleDelete,
+    handleFileUpload,
+    handleFileDelete,
     handleDeleteButtonClick,
     handleUploadButtonClick,
-    handleFileUpload,
     filesTable,
     tableValues,
   ] = FileListBehavior(uploadButtonRef);
@@ -24,7 +24,7 @@ const FileList = () => {
       <AlertPopup
         showAlert={showAlert}
         setShowAlert={setShowAlert}
-        handleDelete={handleDelete}
+        handleDelete={handleFileDelete}
         type="file"
       />
       <div className="p-4 bg-white border border-top-0">
