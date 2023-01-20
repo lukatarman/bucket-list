@@ -17,7 +17,7 @@ const MyStorageBehavior = () => {
 
   useEffect(() => {
     visibleTab === "file-details" ? setVisibleDelete(true) : setVisibleDelete(false);
-  }, [visibleTab]);
+  }, [visibleTab, setVisibleDelete]);
 
   const handleDeleteClick = () => {
     deleteBucket(selectedBucket.index);
