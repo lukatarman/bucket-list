@@ -1,4 +1,5 @@
 import { Button, Modal } from "react-bootstrap";
+import CustomButton from "../CustomButton/custom.button.js";
 
 const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
   const handleClose = () => setShowAlert(false);
@@ -14,12 +15,16 @@ const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
         <Modal.Body>
           <div className="mb-2">Do you really want to delete this {type}?</div>
           <div>
-            <Button variant="custom" onClick={handleDeleteConfirm} className="m-2">
-              Delete
-            </Button>
-            <Button variant="custom" onClick={handleClose}>
-              Cancel
-            </Button>
+            <CustomButton
+              customClasses="m-2"
+              handleClick={handleDeleteConfirm}
+              buttonValue="Delete"
+            />
+            <CustomButton
+              customClasses=""
+              handleClick={handleClose}
+              buttonValue="Cancel"
+            />
           </div>
         </Modal.Body>
       </Modal>
