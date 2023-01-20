@@ -31,13 +31,8 @@ const FileListBehavior = (uploadButtonRef) => {
 
     const response = await getFiles(selectedBucket.index);
 
-    const secondResponse = await getBuckets();
-
-    setSelectedBucket({
-      ...secondResponse.data[selectedBucket.index],
-      index: selectedBucket.index,
-    });
     setFilesTable(response.data);
+    refreshSelectedBucket();
   };
 
   const handleDeleteButtonClick = async () => {
@@ -48,17 +43,22 @@ const FileListBehavior = (uploadButtonRef) => {
     uploadButtonRef.current.click();
   };
 
-  const handleDelete = async () => {
+  const handleFileDelete = async () => {
     await deleteFile(selectedBucket.index);
 
     const response = await getFiles(selectedBucket.index);
-    const secondResponse = await getBuckets();
+
+    setFilesTable(response.data);
+    refreshSelectedBucket();
+  };
+
+  const refreshSelectedBucket = async () => {
+    const response = await getBuckets();
 
     setSelectedBucket({
-      ...secondResponse.data[selectedBucket.index],
+      ...response.data[selectedBucket.index],
       index: selectedBucket.index,
     });
-    setFilesTable(response.data);
   };
 
   const tableValues = {
@@ -69,10 +69,10 @@ const FileListBehavior = (uploadButtonRef) => {
   return [
     showAlert,
     setShowAlert,
-    handleDelete,
+    handleFileUpload,
+    handleFileDelete,
     handleDeleteButtonClick,
     handleUploadButtonClick,
-    handleFileUpload,
     filesTable,
     tableValues,
   ];
