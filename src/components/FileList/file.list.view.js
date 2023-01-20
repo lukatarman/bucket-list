@@ -51,7 +51,6 @@ const FileList = () => {
             />
           </Col>
         </Row>
-
         <CustomTable
           handleTableItemClick={() => {}}
           tableValues={tableValues}
