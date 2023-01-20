@@ -22,7 +22,7 @@ const FileListBehavior = (uploadButtonRef) => {
     };
 
     fetchData();
-  }, [setFilesTable]);
+  }, [setFilesTable, selectedBucket.index]);
 
   const handleFileUpload = async (e) => {
     const formData = new FormData();
