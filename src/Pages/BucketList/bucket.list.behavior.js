@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { getBuckets } from "../../adapters/http.client.adapter.js";
 import { selectedBucketState, visiblePageState } from "../../contexts/AppContext";
 import {
@@ -15,8 +15,7 @@ const BucketListBehavior = () => {
   const [displayCreateButton, setDisplayCreateButton] = useRecoilState(
     displayCreateButtonState
   );
-  const [fetchResults, setFetchResults] = useRecoilState(bucketListTableResultsState);
-  const tableResults = useRecoilValue(bucketListTableResultsState);
+  const [tableResults, setTableResults] = useRecoilState(bucketListTableResultsState);
   const setSelectedBucket = useSetRecoilState(selectedBucketState);
   const setVisiblePage = useSetRecoilState(visiblePageState);
 
@@ -28,17 +27,17 @@ const BucketListBehavior = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getBuckets();
-      setFetchResults(response.data);
+      setTableResults(response.data);
     };
 
     fetchData();
-  }, [setFetchResults]);
+  }, [setTableResults]);
 
   useEffect(() => {
-    const tableResults = fetchResults.map((result) => [result.name, result.location]);
+    const renderRows = tableResults.map((result) => [result.name, result.location]);
 
-    setTableValues({ head: tableValues.head, rows: tableResults });
-  }, [fetchResults, tableValues.head]);
+    setTableValues({ head: tableValues.head, rows: renderRows });
+  }, [tableResults, tableValues.head]);
 
   const handleButtonClick = () => {
     setDisplayCreateButton(false);
@@ -47,9 +46,9 @@ const BucketListBehavior = () => {
 
   const handleTableItemClick = (index) => {
     setSelectedBucket({
-      name: fetchResults[index].name,
-      location: fetchResults[index].location,
-      size: fetchResults[index].size,
+      name: tableResults[index].name,
+      location: tableResults[index].location,
+      size: tableResults[index].size,
       index,
     });
     setVisiblePage("my-storage");
