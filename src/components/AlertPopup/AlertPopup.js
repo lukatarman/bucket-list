@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
 import { selectedFileList } from "../../contexts/BucketListContext/index.js";
