@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { selectedBucketState } from "../../contexts/AppContext/index.js";
+import { selectedBucketState } from "../../contexts/AppContext";
 import { fixBytes } from "../../utils/file.size.js";
 
 const FileDetails = () => {
