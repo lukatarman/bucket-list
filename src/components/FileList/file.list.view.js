@@ -25,6 +25,7 @@ const FileList = () => {
         showAlert={showAlert}
         setShowAlert={setShowAlert}
         handleDelete={handleDelete}
+        type="file"
       />
       <div className="p-4 bg-white border border-top-0">
         <Row className="mb-4">

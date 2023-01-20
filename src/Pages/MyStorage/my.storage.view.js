@@ -22,6 +22,7 @@ const MyStorage = () => {
         showAlert={showDetailsAlert}
         setShowAlert={setShowDetailsAlert}
         handleDelete={handleDeleteClick}
+        type="bucket"
       />
       <h4 className="my-3">{selectedBucket.name}</h4>
       <div className="position-relative">

@@ -1,6 +1,6 @@
 import { Button, Modal } from "react-bootstrap";
 
-const AlertPopup = ({ showAlert, setShowAlert, handleDelete }) => {
+const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
   const handleClose = () => setShowAlert(false);
 
   const handleDeleteConfirm = () => {
@@ -12,7 +12,7 @@ const AlertPopup = ({ showAlert, setShowAlert, handleDelete }) => {
     <div>
       <Modal centered show={showAlert} onHide={handleClose}>
         <Modal.Body>
-          <div className="mb-2">Do you really want to delete this object?</div>
+          <div className="mb-2">Do you really want to delete this {type}?</div>
           <div>
             <Button variant="custom" onClick={handleDeleteConfirm} className="m-2">
               Delete
