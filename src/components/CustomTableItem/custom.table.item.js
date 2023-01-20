@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
+import { useRecoilValue } from "recoil";
+import { selectedFileList } from "../../contexts/BucketListContext/index.js";
 
 const CustomTableItem = ({
   items,
@@ -8,6 +10,10 @@ const CustomTableItem = ({
   variation,
   lastIndex,
 }) => {
+  const selectedFileIndex = useRecoilValue(selectedFileList);
+
+  const isSelected = index === selectedFileIndex ? "is-selected" : "";
+
   const renderItems = items.map((item, i) => {
     const lastBottomBorder = index === lastIndex ? " border-bottom-0" : "";
 
@@ -28,7 +34,11 @@ const CustomTableItem = ({
     );
   });
 
-  return <tr onClick={() => handleTableItemClick(index)}>{renderItems}</tr>;
+  return (
+    <tr className={isSelected} onClick={() => handleTableItemClick(index)}>
+      {renderItems}
+    </tr>
+  );
 };
 
 export default CustomTableItem;

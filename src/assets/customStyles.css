@@ -15,3 +15,7 @@
   outline: 1px solid black;
   box-shadow: none;
 }
+
+.is-selected {
+  background-color: #ddd;
+}
