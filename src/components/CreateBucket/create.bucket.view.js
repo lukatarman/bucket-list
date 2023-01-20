@@ -14,7 +14,7 @@ const CreateBucket = () => {
       <form className="bg-white p-4 mb-3" onSubmit={handleSubmit}>
         <Row className="mb-4">
           <Col>
-            <Form.Label>Bucket Name*</Form.Label>
+            <Form.Label>Bucket Name</Form.Label>
             <Form.Control
               className="bucket-input rounded-0 w-75 py-1"
               type="text"
@@ -23,7 +23,7 @@ const CreateBucket = () => {
             ></Form.Control>
           </Col>
           <Col>
-            <Form.Label>Bucket Location*</Form.Label>
+            <Form.Label>Bucket Location</Form.Label>
             <Dropdown
               controlClassName="w-75 rounded-0 p-1"
               menuClassName="dropdown-custom"
