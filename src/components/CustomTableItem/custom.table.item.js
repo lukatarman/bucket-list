@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { useRecoilValue } from "recoil";
-import { selectedFileList } from "../../contexts/BucketListContext/index.js";
+import { selectedFileList } from "../../contexts/MyStorageContext";
 
 const CustomTableItem = ({
   items,
