@@ -17,7 +17,8 @@ const CustomTable = ({
 
   useEffect(() => {
     const onBodyClick = (e) => {
-      const isButtonOrFileType = e.target.type === "file";
+      const isButtonOrFileType = e.target.type === "button";
+      console.log(isButtonOrFileType);
 
       if (!tableVariationRef.current) return;
       if (tableVariationRef.current.contains(e.target)) return;
