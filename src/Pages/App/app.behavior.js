@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { visiblePageState } from "../../contexts/AppContext";
 import {
@@ -12,11 +13,14 @@ const AppBehavior = () => {
   const setDisplayCreateButton = useSetRecoilState(displayCreateButtonState);
   const setFilesTable = useSetRecoilState(filesTableState);
 
+  useEffect(() => {
+    setFilesTable([]);
+  }, [visiblePage, setFilesTable]);
+
   const handleBrandClick = () => {
     setVisiblePage("bucket-list");
     setDisplayCreateBucket(false);
     setDisplayCreateButton(true);
-    setFilesTable([]);
   };
 
   return [visiblePage, handleBrandClick];

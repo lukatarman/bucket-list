@@ -30,7 +30,7 @@ const CustomTable = ({
     return () => {
       document.body.removeEventListener("click", onBodyClick);
     };
-  }, []);
+  }, [setSelectedFileIndex]);
 
   const tableRowsRender = tableValues.rows.map((result, index) => {
     const lastIndex = tableValues.rows.length - 1;
