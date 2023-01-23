@@ -16,6 +16,6 @@
   box-shadow: none;
 }
 
-.is-selected {
+.file-selected {
   background-color: #ddd;
 }
