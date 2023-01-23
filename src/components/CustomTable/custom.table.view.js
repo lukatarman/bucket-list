@@ -1,4 +1,7 @@
+import { useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
+import { useSetRecoilState } from "recoil";
+import { selectedFileList } from "../../contexts/MyStorageContext/index.js";
 import CustomTableItem from "../CustomTableItem/custom.table.item.js";
 
 const CustomTable = ({
@@ -7,6 +10,25 @@ const CustomTable = ({
   firstRowWidth,
   variation = false,
 }) => {
+  const setSelectedFileIndex = useSetRecoilState(selectedFileList);
+
+  const tableRef = useRef();
+  const tableVariationRef = useRef();
+
+  useEffect(() => {
+    const onBodyClick = (e) => {
+      if (!tableVariationRef.current) return;
+      if (tableVariationRef.current.contains(e.target)) return;
+      setSelectedFileIndex(null);
+    };
+
+    document.body.addEventListener("click", onBodyClick);
+
+    return () => {
+      document.body.removeEventListener("click", onBodyClick);
+    };
+  }, []);
+
   const tableRowsRender = tableValues.rows.map((result, index) => {
     const lastIndex = tableValues.rows.length - 1;
 
