@@ -12,7 +12,7 @@ const CustomTableItem = ({
 }) => {
   const selectedFileIndex = useRecoilValue(selectedFileList);
 
-  const isSelected = index === selectedFileIndex && variation ? "is-selected" : "";
+  const isSelected = index === selectedFileIndex && variation ? "file-selected" : "";
 
   const renderItems = items.map((item, i) => {
     const lastBottomBorder = index === lastIndex ? " border-bottom-0" : "";
