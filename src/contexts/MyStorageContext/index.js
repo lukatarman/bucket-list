@@ -19,3 +19,8 @@ export const showDetailsAlertState = atom({
   key: "ShowDetailsAlert",
   default: false,
 });
+
+export const selectedFileList = atom({
+  key: "SelectedFileList",
+  default: null,
+});
