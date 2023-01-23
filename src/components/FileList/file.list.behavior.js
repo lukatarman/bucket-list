@@ -9,7 +9,7 @@ import { useRecoilState } from "recoil";
 import { selectedBucketState } from "../../contexts/AppContext";
 import { filesTableState } from "../../contexts/MyStorageContext";
 import { fixFilesTable } from "./services/file.list.service.js";
-import { selectedFileList } from "../../contexts/BucketListContext/index.js";
+import { selectedFileList } from "../../contexts/MyStorageContext";
 
 const FileListBehavior = (uploadButtonRef) => {
   const [selectedBucket, setSelectedBucket] = useRecoilState(selectedBucketState);
