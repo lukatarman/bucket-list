@@ -31,7 +31,12 @@ const CustomTable = ({
   });
 
   return (
-    <Table className="mb-0" borderless={!variation} hover>
+    <Table
+      className="mb-0"
+      borderless={!variation}
+      hover
+      ref={variation ? tableVariationRef : tableRef}
+    >
       <thead>
         <tr className="border border-dark bg-secondary text-white">{tableHeadRender}</tr>
       </thead>
