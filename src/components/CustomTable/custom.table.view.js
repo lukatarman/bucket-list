@@ -65,7 +65,7 @@ const CustomTable = ({
       <thead>
         <tr className="border border-dark bg-secondary text-white">{tableHeadRender}</tr>
       </thead>
-      <tbody className="border border-dark mb-5" role={variation ? "" : "button"}>
+      <tbody className="border border-dark mb-5" role={"button"}>
         {tableRowsRender}
       </tbody>
     </Table>
