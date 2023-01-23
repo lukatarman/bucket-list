@@ -1,6 +1,6 @@
 import { Modal } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
-import { selectedFileList } from "../../contexts/BucketListContext/index.js";
+import { selectedFileList } from "../../contexts/MyStorageContext";
 import CustomButton from "../CustomButton/custom.button.js";
 
 const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
