@@ -29,6 +29,9 @@ const FileListBehavior = (uploadButtonRef) => {
 
   const handleFileUpload = async (e) => {
     const formData = new FormData();
+
+    if (!formData) return;
+
     formData.append("file", e.target.files[0]);
     await uploadFile(formData, selectedBucket.index);
 
