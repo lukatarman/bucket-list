@@ -1,10 +1,24 @@
 import { Modal } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
-import { selectedFileList } from "../../contexts/MyStorageContext";
+import { filesTableState, selectedFileList } from "../../contexts/MyStorageContext";
 import CustomButton from "../CustomButton/custom.button.js";
 
 const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
   const selectedFileIndex = useRecoilValue(selectedFileList);
+  const filesTable = useRecoilValue(filesTableState);
+
+  const getConfirmationText = () => {
+    if (!filesTable[selectedFileIndex]) return;
+
+    if (type === "bucket") return `Do you really want to delete this bucket?`;
+    if (type === "file")
+      return (
+        <div>
+          Do you really want to delete the file{" "}
+          <strong>{filesTable[selectedFileIndex].name}</strong>
+        </div>
+      );
+  };
 
   const handleClose = () => setShowAlert(false);
 
@@ -37,7 +51,7 @@ const AlertPopup = ({ showAlert, setShowAlert, handleDelete, type }) => {
     return (
       <Modal centered show={showAlert} onHide={handleClose}>
         <Modal.Body>
-          <div className="mb-2">Do you really want to delete this {type}?</div>
+          <div className="mb-2">{getConfirmationText()}</div>
           <div>
             <CustomButton
               customClasses="m-2"
