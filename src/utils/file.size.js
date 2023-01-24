@@ -8,5 +8,6 @@ export function fixBytes(x) {
     n = n / 1024;
   }
 
-  return n.toFixed(n < 10 && l > 0 ? 1 : 0) + " " + units[l];
+  const floored = Math.floor(n * 10) / 10;
+  return floored + " " + units[l];
 }
